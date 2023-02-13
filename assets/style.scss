@@ -1,0 +1,25 @@
+//base styles
+@import "./base/reset";
+@import "./base/variables";
+
+//Organisms
+@import "./organisms/header";
+@import "./organisms/main";
+@import "./organisms/footer";
+
+//Atoms
+@import "./organisms/atoms/button";
+
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: $font-main;
+    color: $color-light1;
+    font-size: 1.6rem; 
+    margin-top: 3.2rem;   
+    
+};
+
