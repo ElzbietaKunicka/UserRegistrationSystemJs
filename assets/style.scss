@@ -6,6 +6,7 @@
 @import "./organisms/header";
 @import "./organisms/main";
 @import "./organisms/footer";
+@import "./organisms/logIn/main";
 
 //Atoms
 @import "./organisms/atoms/button";
@@ -22,4 +23,5 @@ body {
     margin-top: 3.2rem;   
     
 };
+
 

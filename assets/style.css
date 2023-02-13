@@ -52,6 +52,38 @@ table {
   border-spacing: 0;
 }
 
+.paragraf {
+  color: #555555;
+  font-size: 2rem;
+  line-height: 150%;
+  font-weight: 400;
+  padding-bottom: 1rem;
+  padding-right: 2.3rem;
+}
+
+.paragraf {
+  color: #555555;
+  font-size: 2rem;
+  line-height: 150%;
+  font-weight: 400;
+  padding-bottom: 1rem;
+  padding-right: 2.3rem;
+}
+
+.singup {
+  border: 1rem solid #555555;
+  background-color: #ff3998;
+  padding: 1rem 1rem;
+  margin: 0 40rem;
+  text-align: center;
+}
+
+.singup a {
+  text-decoration: none;
+  color: #ffffff;
+  margin: 10px 30px;
+}
+
 html {
   font-size: 62.5%;
 }

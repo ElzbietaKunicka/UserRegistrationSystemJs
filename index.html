@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Document</title>
+    <title>LogIn</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,7 +16,24 @@
   </head>
   <body>
     <header></header>
-    <main>Scss</main>
+    <main>
+      <form id="logIn">
+        <div class="container">
+          <p class="paragraf">Please fill in this form to LogIn an account.</p>
+          <input type="text" placeholder="Enter username" name="username" required id="userName">
+          <input type="password" placeholder="Enter Password" name="password" required id="password">
+        </div>
+        <div class="logIn">
+          <button type="submit" class="signupbtn">Log In</button>
+        </div>
+      </form>
+      <div class="singup">
+        <a href="./singUp.html">Create new account</a>
+      </div>
+      
+    </main>
     <footer></footer>
+    <script src="./script.js"></script>
+    
   </body>
 </html>
