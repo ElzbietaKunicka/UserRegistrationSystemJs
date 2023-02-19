@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="wrapper">
+        <h1>Add your personal information</h1>
+      </div>
+    </header>
+    <section class="form-container wrapper">
+      <div>
+        <h3>Add Poperty</h3>
+      </div>
+      <form id="add-property-form">
+        <label for="persInfoName">name</label>
+        <input type="text" id="persInfoName" name="name" placeholder="name" />
+        <label for="persInfoSurname">Surname</label>
+        <input
+          type="text"
+          id="persInfoSurname"
+          name="surname"
+          placeholder="Surname"
+        />
+        <label for="persInfoPersonalCode">PersonalCode</label>
+        <input
+          type="text"
+          id="persInfoPersonalCode"
+          name="personalCode"
+          placeholder="PersonalCode"
+        />
+        <label for="persInfoPhone">Phone</label>
+        <input
+          type="tel"
+          id="persInfoPhone"
+          name="phone"
+          placeholder="+3706 000 00 000"
+        />
+        <label for="persInfoEmail">Email</label>
+        <input
+          type="email"
+          id="persInfoEmail"
+          name="email"
+          placeholder="example@gmail.com"
+        />
+
+        <select name="city" id="persInfoCity">
+          <!-- Generated list here -->
+        </select>
+        <label for="persInfoStreet">Street</label>
+        <input
+          type="text"
+          id="persInfoStreet"
+          name="street"
+          placeholder="street"
+        />
+        <label for="persInfoHomeNumber">HomeNumber</label>
+        <input
+          type="number"
+          id="persInfoHomeNumber"
+          name="homeNumber"
+          placeholder="HomeNumber"
+        />
+        <label for="persInfoApartmentNumber">ApartmentNumber</label>
+        <input
+          type="number"
+          id="persInfoApartmentNumber"
+          name="apartmentNumber"
+          placeholder="ApartmentNumber"
+        />
+
+        <button type="submit" class="addPropertyButton">Add property</button>
+      </form>
+      <div id="statusMessages">
+        <!-- Display server messages -->
+      </div>
+    </section>
+    <script src="./add.js"> 
+    </script>
+  </body>
+</html>
