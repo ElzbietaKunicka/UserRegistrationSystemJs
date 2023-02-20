@@ -12,7 +12,7 @@ dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
+figure, figcaption, footer, header, main, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
   margin: 0;
@@ -24,8 +24,7 @@ time, mark, audio, video {
 }
 
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+article, aside, details, figcaption, figure, footer, header, form, main, hgroup, menu, nav, section {
   display: block;
 }
 
@@ -52,36 +51,190 @@ table {
   border-spacing: 0;
 }
 
-.paragraf {
-  color: #555555;
-  font-size: 2rem;
-  line-height: 150%;
-  font-weight: 400;
-  padding-bottom: 1rem;
-  padding-right: 2.3rem;
+header, footer, form, main {
+  padding-left: 3.2rem;
+  padding-right: 3.2rem;
 }
 
-.paragraf {
-  color: #555555;
-  font-size: 2rem;
-  line-height: 150%;
-  font-weight: 400;
-  padding-bottom: 1rem;
-  padding-right: 2.3rem;
+.header_wrapper_mobile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.singup {
-  border: 1rem solid #555555;
+.nav_links a {
+  color: #555555;
+  text-decoration: none;
+}
+
+.link_one span:hover {
   background-color: #ff3998;
-  padding: 1rem 2rem;
-  margin: 0 5rem;
+  color: #ffffff;
+}
+
+.nav_links {
+  overflow: hidden;
+  height: 0;
+  width: 0;
+  display: flex;
+  gap: 1rem;
+}
+
+.right_side {
+  display: flex;
+  justify-content: space-between;
+}
+
+.active {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.active:hover {
+  background-color: #ff3998;
+  cursor: pointer;
+}
+
+.link_one:hover {
+  background-color: #ff3998;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.menu-line1, .menu-line3, .menu-line2 {
+  width: 2.4rem;
+  height: 0.4rem;
+  background: #999999;
+  border-radius: 0.3rem;
+}
+
+@media screen and (min-width: 768px) {
+  header, footer, form, main {
+    padding-left: 8rem;
+    padding-right: 8rem;
+    padding-top: 3.8rem;
+  }
+  .menu-line1, .menu-line2, .menu-line3 {
+    overflow: hidden;
+    height: 0;
+    width: 0;
+  }
+  .menu-line2 {
+    overflow: hidden;
+    height: 0;
+    width: 0;
+  }
+  .menu-line3 {
+    overflow: hidden;
+    height: 0;
+    width: 0;
+  }
+  .nav_links {
+    overflow: hidden;
+    height: auto;
+    display: flex;
+    width: 100%;
+    align-items: center;
+  }
+  .link_one {
+    font-size: 1.4rem;
+  }
+}
+@media screen and (min-width: 1100px) {
+  .link_one {
+    font-size: 2rem;
+  }
+  .nav_links {
+    gap: 2rem;
+  }
+}
+main {
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+  text-align: center;
+  margin: auto;
+}
+
+h1 {
+  padding-bottom: 2rem;
+  padding-top: 1rem;
+  font-weight: 700;
+  color: #111111;
+  font-size: 4.8rem;
+  line-height: 5.8rem;
+}
+
+input, .formButton, .formHref {
+  border: 0.2rem solid #999999;
+  border-radius: 1%;
+  padding: 0.4rem;
+}
+
+.paragraph, .copyright {
+  color: #999999;
+  font-size: 2rem;
+  line-height: 150%;
+  font-weight: 400;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+span {
+  color: #ff3998;
+}
+
+form {
+  border: 0.5rem solid #999999;
+  border-radius: 1%;
+  background-color: #111111;
+  padding-bottom: 3rem;
+  padding-top: 3rem;
+  width: -moz-min-content;
+  width: min-content;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.formHref {
   text-align: center;
 }
 
-.singup a {
+.formHref a {
   text-decoration: none;
+  color: #999999;
+  font-size: 1rem;
+  line-height: 1.8rem;
+  padding: 0.5rem;
+}
+
+.formButton {
+  background-color: #ff3998;
   color: #ffffff;
-  margin: 10px 30px;
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.copyright {
+  padding-top: 4rem;
+  color: #999999;
+  font-size: 1.6rem;
+}
+
+footer {
+  padding-top: 6rem;
+  padding-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
 .header {

@@ -1,5 +1,9 @@
-const nameParagraf = document.createElement("p");
-document.body.append(nameParagraf);
+const helloContainer = document.getElementById("hello");
+const helloParagraph = document.createElement("p");
+helloParagraph.textContent = "mea";
+helloParagraph.style.color = "blue";
+helloContainer.append(helloParagraph);
+
 // nameParagraf.textContent = user.name;
 // const surnameParagraf = document.createElement("p");
 // surnameParagraf.textContent = user.surname;
@@ -45,6 +49,7 @@ async function fetchUsers(){
       users.forEach(user => {
         const nameParagraf = document.createElement("p");
         nameParagraf.textContent = user.name;
+        
         
         
       });

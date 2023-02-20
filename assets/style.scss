@@ -3,11 +3,15 @@
 @import "./base/variables";
 
 //Organisms
-@import "./organisms/header";
-@import "./organisms/main";
-@import "./organisms/footer";
+// @import "./organisms/header";
+// @import "./organisms/main";
+// @import "./organisms/footer";
+@import "./organisms/logIn/header";
 @import "./organisms/logIn/main";
+@import "./organisms/logIn/footer";
+
 @import "./organisms/thenLogin/header";
+
 
 //Atoms
 @import "./organisms/atoms/button";

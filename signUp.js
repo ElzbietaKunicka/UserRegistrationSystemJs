@@ -1,4 +1,4 @@
-const form = document.querySelector("#singUp");
+const form = document.querySelector("#signUp");
 
 form.addEventListener("submit", async e => {
   e.preventDefault();
@@ -36,6 +36,4 @@ form.addEventListener("submit", async e => {
     console.error(error);
   }
 });
-form.addEventListener("click", e =>{
-    window.location.href = "./index.html";
-});
+

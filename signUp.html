@@ -4,8 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>LogIn</title>
+    <title>Document</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -38,13 +37,13 @@
     </header>
     <main>
       <div>
-        <h1>
-          Welcome back
-        </h1>
+        <h1>Sign<span> Up</span></h1>
       </div>
-      <form id="logIn">
+      <form id="signUp">
         <div class="container">
-          <p class="paragraph"> <span> Login </span> to Your Account</p>
+          <p class="paragraph">
+            Please fill in this form to <span>Sign Up</span> an account.
+          </p>
           <input
             type="text"
             placeholder="Enter username"
@@ -59,23 +58,20 @@
             required
             id="password"
           />
-          <div>
-            <button type="submit" class="formButton">Log In</button>
-          </div>
         </div>
-        
-        <div class="formHref" >
-          <a href="./signUp.html">Don't have an account? <span> Sign up</span></a>
+        <div>
+          <button type="submit" class="formButton">Sign Up</button>
+        </div>
+        <div class="formHref">
+          <a href="./index.html">Back to<span> Login</span></a>
         </div>
       </form>
-      <!-- <div id="message">
 
-      </div> -->
-
+      <div id="Messages"></div>
     </main>
     <footer>
       <p class="copyright">© Copyright 2023 Company</p>
     </footer>
-    <script src="./script.js"></script>
+    <script src="./signUp.js"></script>
   </body>
 </html>

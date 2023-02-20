@@ -28,23 +28,24 @@ form.addEventListener("submit", async e => {
       document.cookie = `token=${data}`;
       const getCookie = name => {
         const cookies = document.cookie.split(";");
-
         for (let i = 0; i < cookies.length; i++) {
           let c = cookies[i].trim().split("=");
           if (c[0] === name) {
             return decodeURIComponent(c[1]);
           }
         }
-
         return "";
       };
-
       let output = getCookie("token");
-
-
       window.location.href = "./thenLogIn.html";
     } else {
-      console.log("something wrong");
+      // const message = document.getElementById("message");
+      // const messageParagraph = document.createElement("p");
+      // messageParagraph.textContent = "user name with name " + userName + "not exist, try again";
+      // messageParagraph.style.color = "red";
+      // message.append(messageParagraph);
+      alert(`Wrong username or password, try again`);
+      location.href = "http://127.0.0.1:5501/index.html";
     }
   } catch (error) {
     console.error(error);
