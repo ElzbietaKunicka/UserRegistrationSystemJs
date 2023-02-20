@@ -10,32 +10,32 @@ citiesList.forEach(city => {
 });
 
 const getCookie = name => {
-    const cookies = document.cookie.split(";");
-    for (let i = 0; i < cookies.length; i++) {
-      let c = cookies[i].trim().split("=");
-      if (c[0] === name) {
-        return decodeURIComponent(c[1]);
-      }
+  const cookies = document.cookie.split(";");
+  for (let i = 0; i < cookies.length; i++) {
+    let c = cookies[i].trim().split("=");
+    if (c[0] === name) {
+      return decodeURIComponent(c[1]);
     }
-    return "";
-  };
-
-  function parseJwt() {
-    let token = getCookie("token");
-    let base64Url = token.split(".")[1];
-    let base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-    let jsonPayload = decodeURIComponent(
-      window
-        .atob(base64)
-        .split("")
-        .map(function (c) {
-          return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
-        })
-        .join("")
-    );
-    console.log(JSON.parse(jsonPayload));
-    return JSON.parse(jsonPayload);
   }
+  return "";
+};
+
+function parseJwt() {
+  let token = getCookie("token");
+  let base64Url = token.split(".")[1];
+  let base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+  let jsonPayload = decodeURIComponent(
+    window
+      .atob(base64)
+      .split("")
+      .map(function (c) {
+        return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+      })
+      .join("")
+  );
+  console.log(JSON.parse(jsonPayload));
+  return JSON.parse(jsonPayload);
+}
 
 const postProperty = async objectToSend => {
   try {
@@ -44,14 +44,18 @@ const postProperty = async objectToSend => {
       {
         method: "POST",
         headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${getCookie("token")}`
-          },
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${getCookie("token")}`
+        },
         body: JSON.stringify(objectToSend)
       }
     );
-    const result = await response.json();
-
+    if(response.ok){
+      window.location.href = "./thenLogIn.html";
+    }else{
+      console.log("kazkas blogai");
+    }
+    
   } catch (error) {
     console.log(error);
   }
@@ -76,11 +80,11 @@ form.addEventListener("submit", event => {
     personalCode,
     phone,
     email,
-    residentialAddress:{
-        city,
-        street,
-        homeNumber,
-        apartmentNumber
+    residentialAddress: {
+      city,
+      street,
+      homeNumber,
+      apartmentNumber
     }
   };
   postProperty(formObject);
