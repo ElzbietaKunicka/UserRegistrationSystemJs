@@ -171,6 +171,10 @@ input, .formButton, .formHref {
   padding: 0.4rem;
 }
 
+input:focus, .formButton:focus, .formHref:focus {
+  background-color: #999999;
+}
+
 .paragraph, .copyright {
   color: #999999;
   font-size: 2rem;
@@ -200,6 +204,7 @@ form {
 
 .formHref {
   text-align: center;
+  transition: width 0.4s ease-in-out;
 }
 
 .formHref a {
@@ -210,11 +215,19 @@ form {
   padding: 0.5rem;
 }
 
+.formHref a:hover {
+  font-size: 1.4rem;
+}
+
 .formButton {
   background-color: #ff3998;
   color: #ffffff;
   padding-left: 1.6rem;
   padding-right: 1.6rem;
+}
+
+.formButton:hover {
+  font-size: 1.8rem;
 }
 
 .container {

@@ -19,6 +19,9 @@ input {
     border-radius: 1%;
     padding: 0.4rem;
   }
+  input:focus{
+    background-color: $color-dark4;
+  }
 .paragraph {
   color: $color-dark4;
   font-size: 2rem;
@@ -49,6 +52,7 @@ form {
 .formHref {
   text-align: center;
   @extend input;
+  transition: width 0.4s ease-in-out;
 }
 .formHref a {
   text-decoration: none;
@@ -56,6 +60,11 @@ form {
   font-size: 1rem;
   line-height: 1.8rem;
   padding: 0.5rem;
+  
+}
+.formHref a:hover{
+    font-size: 1.4rem;
+    
 }
 
 .formButton {
@@ -64,6 +73,9 @@ form {
     color: $color-light1;
     padding-left: 1.6rem;
     padding-right: 1.6rem;
+}
+.formButton:hover {
+    font-size: 1.8rem;
 }
 .container {
   display: flex;
