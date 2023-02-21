@@ -19,7 +19,7 @@
             <a href="#" class="link_one"> Home </a>
             <a href="#" class="link_one"> About </a>
             <a href="#" class="link_one"> Support </a>
-            <a href="#" class="link_one"> <span> Log out</span> </a>
+            <a href="./index.html" class="link_one"> <span> Log out</span> </a>
           </nav>
           <div class="active">
             <div class="menu-line1"></div>
@@ -44,13 +44,13 @@
           <div class="box required">
             <legend><span>Personal Information:</span></legend>
             <label  for="persInfoName">Name</label>
-            <input type="text" id="persInfoName" name="name" placeholder="Name"  required />
+            <input type="text" id="persInfoName" name="name" placeholder="Name" maxlength="35" required />
             <label for="persInfoSurname">Surname</label>
             <input
               type="text"
               id="persInfoSurname"
               name="surname"
-              placeholder="Surname" required
+              placeholder="Surname" maxlength="35" required
             />
             <label for="persInfoPersonalCode">PersonalCode</label>
             <input
@@ -71,14 +71,14 @@
             type="tel"
             id="persInfoPhone"
             name="phone"
-            placeholder="+3706 000 00 000" required
+            placeholder="+3706 000 00 000" minlength="9" maxlength="12" required
           />
           <label for="persInfoEmail">Email</label>
           <input
             type="email"
             id="persInfoEmail"
             name="email"
-            placeholder="example@gmail.com" required
+            placeholder="example@gmail.com" maxlength="255" required
           />
           </div>
         </fieldset>
@@ -96,7 +96,7 @@
             type="text"
             id="persInfoStreet"
             name="street"
-            placeholder="street" required
+            placeholder="street" maxlength="255" required
           />
           <label for="persInfoHomeNumber">HomeNumber</label>
           <input
