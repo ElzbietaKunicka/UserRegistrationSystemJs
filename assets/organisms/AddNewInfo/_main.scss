@@ -1,0 +1,66 @@
+.bodyAddNew form {
+  @extend form;
+  background-color: $color-light3;
+  //border-color: $color-dark3;
+  text-align: left;
+  width: max-content;
+}
+.bodyAddNew input {
+  background-color: $color-light1;
+}
+h2 {
+  @extend h1;
+  font-size: 2.4rem;
+  line-height: 2.8rem;
+  text-align: center;
+  color: $color-light3;
+}
+legend span {
+  color: $color-dark2;
+  font-weight: 800;
+}
+.bodyAddNew label {
+  color: $color-dark1;
+}
+
+#submitformButton {
+  background-color: $color-pink;
+ 
+}
+.Addbtnfieldset{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+   
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 1.2rem;
+}
+.box :first-child {
+  padding-bottom: 0.5rem;
+  font-size: 1.6rem;
+}
+.required label:after {
+  content: "*";
+  color: $color-pink;
+}
+
+@media screen and (min-width: 768px) {
+  .bodyAddNew form {
+    width: 35rem;
+    
+  }
+  .box {
+    gap: 0.4rem;
+
+  }
+  #add-property-form fieldset{
+    padding-left: 3.2rem;
+    padding-right: 3.2rem;
+    
+  }
+}

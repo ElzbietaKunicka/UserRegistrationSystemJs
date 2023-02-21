@@ -76,7 +76,8 @@ const postProperty = async objectToSend => {
     if (response.ok) {
       window.location.href = "./thenLogIn.html";
     } else {
-      console.log("kazkas blogai");
+      alert("Please make sure all fields are filled in correctly.");
+      
     }
   } catch (error) {
     console.log(error);

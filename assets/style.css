@@ -9,7 +9,7 @@ del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
 dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
+fieldset, form, .bodyAddNew form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
 figure, figcaption, footer, header, main, hgroup,
@@ -24,7 +24,7 @@ time, mark, audio, video {
 }
 
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, footer, header, form, main, hgroup, menu, nav, section {
+article, aside, details, figcaption, figure, footer, header, main, hgroup, menu, nav, section {
   display: block;
 }
 
@@ -51,7 +51,7 @@ table {
   border-spacing: 0;
 }
 
-header, footer, form, main {
+header, footer, main {
   padding-left: 3.2rem;
   padding-right: 3.2rem;
 }
@@ -110,7 +110,7 @@ header, footer, form, main {
 }
 
 @media screen and (min-width: 768px) {
-  header, footer, form, main {
+  header, footer, main {
     padding-left: 8rem;
     padding-right: 8rem;
     padding-top: 3.8rem;
@@ -156,7 +156,7 @@ main {
   margin: auto;
 }
 
-h1 {
+h1, h2 {
   padding-bottom: 2rem;
   padding-top: 1rem;
   font-weight: 700;
@@ -188,7 +188,9 @@ span {
   color: #ff3998;
 }
 
-form {
+form, .bodyAddNew form {
+  padding-left: 2.4rem;
+  padding-right: 2.4rem;
   border: 0.5rem solid #999999;
   border-radius: 1%;
   background-color: #111111;
@@ -294,6 +296,76 @@ footer {
   }
   .header-right {
     float: none;
+  }
+}
+.bodyAddNew {
+  background-color: #111111;
+}
+
+.bodyAddNew form {
+  background-color: #cccccc;
+  text-align: left;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.bodyAddNew input, .bodyAddNew .formHref, .bodyAddNew .formButton {
+  background-color: #ffffff;
+}
+
+h2 {
+  font-size: 2.4rem;
+  line-height: 2.8rem;
+  text-align: center;
+  color: #cccccc;
+}
+
+legend span {
+  color: #555555;
+  font-weight: 800;
+}
+
+.bodyAddNew label {
+  color: #111111;
+}
+
+#submitformButton {
+  background-color: #ff3998;
+}
+
+.Addbtnfieldset {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 1.2rem;
+}
+
+.box :first-child {
+  padding-bottom: 0.5rem;
+  font-size: 1.6rem;
+}
+
+.required label:after {
+  content: "*";
+  color: #ff3998;
+}
+
+@media screen and (min-width: 768px) {
+  .bodyAddNew form {
+    width: 35rem;
+  }
+  .box {
+    gap: 0.4rem;
+  }
+  #add-property-form fieldset {
+    padding-left: 3.2rem;
+    padding-right: 3.2rem;
   }
 }
 html {

@@ -3,6 +3,7 @@
 @import "./base/variables";
 
 //Organisms
+
 // @import "./organisms/header";
 // @import "./organisms/main";
 // @import "./organisms/footer";
@@ -12,21 +13,20 @@
 
 @import "./organisms/thenLogin/header";
 
+// add New Form
+@import "./organisms/AddNewInfo/body";
+@import "./organisms/AddNewInfo/main";
 
 //Atoms
 @import "./organisms/atoms/button";
 
-
 html {
-    font-size: 62.5%;
+  font-size: 62.5%;
 }
 
 body {
-    font-family: $font-main;
-    color: $color-light1;
-    font-size: 1.6rem; 
-    margin-top: 3.2rem;   
-    
-};
-
-
+  font-family: $font-main;
+  color: $color-light1;
+  font-size: 1.6rem;
+  margin-top: 3.2rem;
+}
