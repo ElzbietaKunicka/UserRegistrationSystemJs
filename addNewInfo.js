@@ -1,6 +1,29 @@
 const form = document.getElementById("add-property-form"); ///
 
-const citiesList = ["Vilnius", "Kaunas", "Klaipeda", "Siauliai", "Panevezys"];
+const citiesList = [
+  "Vilnius",
+  "Kaunas",
+  "Klaipėda",
+  "Šiauliai",
+  "Panevėžys",
+  "Alytus",
+  "Marijampolė",
+  "Mažeikiai",
+  "Jonava",
+  "	Utena",
+  "Kėdainiai",
+  "Telšiai",
+  "Ukmergė",
+  "Tauragė",
+  "	Visaginas",
+  "	Plungė",
+  "Kretinga",
+  "Palanga",
+  "Šilutė",
+  "Radviliškis",
+  "Gargždai",
+  "Druskininkai"
+];
 
 citiesList.forEach(city => {
   const addCity = document.getElementById("persInfoCity");
@@ -50,12 +73,11 @@ const postProperty = async objectToSend => {
         body: JSON.stringify(objectToSend)
       }
     );
-    if(response.ok){
+    if (response.ok) {
       window.location.href = "./thenLogIn.html";
-    }else{
+    } else {
       console.log("kazkas blogai");
     }
-    
   } catch (error) {
     console.log(error);
   }
