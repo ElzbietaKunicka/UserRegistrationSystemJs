@@ -1,0 +1,19 @@
+.avatar {
+    border: 0.5rem solid $color-dark4;
+    border-radius: 50%;
+    background-color: $color-dark2;
+   
+}
+#personalPage{
+    background-color: $color-dark1;
+    padding: 2rem 2rem;
+}
+.avatarContainer{
+    width: 90%;
+}
+
+@media screen and (min-width: 568px) {
+    .avatarContainer{
+        width: 30%;
+    }
+}

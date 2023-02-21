@@ -299,6 +299,26 @@ dropdown {
     font-size: 1.4rem;
   }
 }
+.avatar {
+  border: 0.5rem solid #999999;
+  border-radius: 50%;
+  background-color: #555555;
+}
+
+#personalPage {
+  background-color: #111111;
+  padding: 2rem 2rem;
+}
+
+.avatarContainer {
+  width: 90%;
+}
+
+@media screen and (min-width: 568px) {
+  .avatarContainer {
+    width: 30%;
+  }
+}
 .bodyAddNew {
   background-color: #111111;
 }

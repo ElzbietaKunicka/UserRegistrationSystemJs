@@ -1,15 +1,7 @@
-// Get the modal
-var modal = document.getElementById('id01');
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
 const helloContainer = document.getElementById("hello");
 const helloParagraph = document.createElement("p");
-helloParagraph.textContent = "mea";
+helloParagraph.textContent = "UserName";
 helloParagraph.style.color = "blue";
 helloContainer.append(helloParagraph);
 
@@ -49,7 +41,8 @@ async function fetchUsers(){
   try{
     const response = await fetch("http://localhost:5200/api/PersonalInformations", {
       headers: {
-        Authorization: `Bearer ${getCookie("token")}`
+        Authorization: `Bearer ${getCookie("token")}`,
+        "Content-Type": "application/json"
       }
     });
 
@@ -58,13 +51,11 @@ async function fetchUsers(){
       users.forEach(user => {
         const nameParagraf = document.createElement("p");
         nameParagraf.textContent = user.name;
-        
-        
-        
-      });
+        body.append(nameParagraf)
+      
+});
 
-    }
-
+}
   }catch(error){
     console.error(error);
     
