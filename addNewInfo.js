@@ -74,7 +74,19 @@ const postProperty = async objectToSend => {
       }
     );
     if (response.ok) {
-      window.location.href = "./thenLogIn.html";
+      const resultMessageContainer = document.getElementById("statusMessages");
+      const messageParagraph = document.createElement("p");
+      messageParagraph.textContent = "Thank you for filling out your information!";
+      messageParagraph.style.color = "pink";
+      messageParagraph.style.paddingTop = "3rem";
+      messageParagraph.style.fontSize = "2rem";
+      resultMessageContainer.append(messageParagraph);
+
+      setTimeout(time, 5000);
+      function time() {
+        window.location.href = "./thenLogIn.html";
+      }
+      
     } else {
       alert("Please make sure all fields are filled in correctly.");
       
