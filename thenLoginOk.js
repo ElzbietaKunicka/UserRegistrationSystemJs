@@ -1,4 +1,3 @@
-
 const helloContainer = document.getElementById("hello");
 const helloParagraph = document.createElement("p");
 helloParagraph.textContent = "UserName";
@@ -37,31 +36,28 @@ function parseJwt() {
   return JSON.parse(jsonPayload);
 }
 
-async function fetchUsers(){
-  try{
-    const response = await fetch("http://localhost:5200/api/PersonalInformations", {
-      headers: {
-        Authorization: `Bearer ${getCookie("token")}`,
-        "Content-Type": "application/json"
+let getNameAndSurname = async () => {
+  try {
+    const response = await fetch(
+      "http://localhost:5200/api/PersonalInformations/CurrentUserInfo",
+      {
+        headers: {
+          Authorization: `Bearer ${getCookie("token")}`,
+          "Content-Type": "application/json"
+        }
       }
-    });
+    );
 
-    if(response.ok){
-      const users = await response.json();
-      users.forEach(user => {
-        const nameParagraf = document.createElement("p");
-        nameParagraf.textContent = user.name;
-        body.append(nameParagraf)
-      
-});
-
-}
-  }catch(error){
+    if (response.ok) {
+      const data = await response.json();
+      const nameParagraf = document.getElementById("hello");
+      nameParagraf.textContent = data.name + " " + data.surname;
+    }
+  } catch (error) {
     console.error(error);
-    
   }
-
 }
+getNameAndSurname();
 
 // function getRole() {
 //   let jwt = parseJwt();
