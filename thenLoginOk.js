@@ -36,10 +36,10 @@ function parseJwt() {
   return JSON.parse(jsonPayload);
 }
 
-let getNameAndSurname = async () => {
+let getUserName = async () => {
   try {
     const response = await fetch(
-      "http://localhost:5200/api/PersonalInformations/CurrentUserInfo",
+      "http://localhost:5200/api/PersonalInformations/CurrentUserName",
       {
         headers: {
           Authorization: `Bearer ${getCookie("token")}`,
@@ -49,15 +49,15 @@ let getNameAndSurname = async () => {
     );
 
     if (response.ok) {
-      const data = await response.json();
+      const userName = await response.text();
       const nameParagraf = document.getElementById("hello");
-      nameParagraf.textContent = data.name + " " + data.surname;
+      nameParagraf.textContent = userName;
     }
   } catch (error) {
     console.error(error);
   }
 }
-getNameAndSurname();
+getUserName();
 
 // function getRole() {
 //   let jwt = parseJwt();
