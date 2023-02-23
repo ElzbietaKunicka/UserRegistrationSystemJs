@@ -403,6 +403,32 @@ dropdown {
     padding-right: 10rem;
   }
 }
+#personalPage .avatar {
+  border: 0.5rem solid #999999;
+  border-radius: 50%;
+  background-color: #555555;
+}
+
+#personalPage {
+  padding: 2rem 2rem;
+}
+
+.avatarContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+#hello {
+  padding: 0rem;
+}
+
+@media screen and (min-width: 568px) {
+  .avatarContainer {
+    width: 30%;
+  }
+}
 html {
   font-size: 62.5%;
 }

@@ -8,19 +8,13 @@
 @import "./organisms/logIn/main";
 @import "./organisms/logIn/footer";
 
-//@import "./organisms/thenLogin/header";
-//@import "./organisms/thenLogin/main";
-
 @import "./organisms/AddNewInfo/main";
-@import "./organisms/AddNewInfo/body";
+
 @import "./organisms/dropdown";
 
 @import "./organisms/UpdateInfo/main";
 
-
-
-//Atoms
-//@import "./organisms/atoms/button";
+@import "./organisms/thenLogin/main";
 
 html {
   font-size: 62.5%;

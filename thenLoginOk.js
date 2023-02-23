@@ -1,12 +1,3 @@
-const helloContainer = document.getElementById("hello");
-const helloParagraph = document.createElement("p");
-helloParagraph.textContent = "UserName";
-helloParagraph.style.color = "blue";
-helloContainer.append(helloParagraph);
-
-// nameParagraf.textContent = user.name;
-// const surnameParagraf = document.createElement("p");
-// surnameParagraf.textContent = user.surname;
 
 const getCookie = name => {
   const cookies = document.cookie.split(";");
