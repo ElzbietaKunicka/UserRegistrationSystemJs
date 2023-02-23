@@ -17,6 +17,14 @@
 #hello {
     padding: 0rem;
 }
+.search_Container{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    //border: 0.5rem solid $color-dark1;
+    color: red;
+}
+
 
 @media screen and (min-width: 568px) {
   .avatarContainer {

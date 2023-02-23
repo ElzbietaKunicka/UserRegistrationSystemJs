@@ -27,7 +27,7 @@ function parseJwt() {
   return JSON.parse(jsonPayload);
 }
 
-let getUserName = async () => {
+let getCurrentUserName = async () => {
   try {
     const response = await fetch(
       "http://localhost:5200/api/PersonalInformations/CurrentUserName",
@@ -48,7 +48,49 @@ let getUserName = async () => {
     console.error(error);
   }
 }
-getUserName();
+getCurrentUserName();
+
+
+const createAccountList = properties => {
+  if (properties && properties.length) {
+  properties.forEach(name => {
+  const namesList = document.getElementById("search");
+  const option = document.createElement("option");
+  option.textContent = name;
+  namesList.append(option);
+});
+      // const ulElem = document.getElementById("accountsName");
+      // const lielem = document.createElement("li");
+      // lielem.textContent = element;
+      // ulElem.append(lielem);
+}
+}
+let getAccountsNames = async () => {
+  try {
+    const response = await fetch(
+      "http://localhost:5200/api/PersonalInformations/AccountsNames",
+      {
+        headers: {
+          Authorization: `Bearer ${getCookie("token")}`,
+          "Content-Type": "application/json"
+        }
+      }
+    );
+
+    if (response.ok) {
+      const data = await response.json();
+      
+      createAccountList(data);
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+getAccountsNames();
+
+
+
+
 
 // function getRole() {
 //   let jwt = parseJwt();
