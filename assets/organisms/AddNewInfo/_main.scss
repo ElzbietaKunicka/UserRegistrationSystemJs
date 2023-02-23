@@ -1,48 +1,44 @@
-.bodyAddNew form {
-  @extend form;
-  background-color: $color-light3;
-  //border-color: $color-dark3;
-  text-align: left;
-  width: max-content;
-}
-.bodyAddNew input {
-  background-color: $color-light1;
-}
 h2 {
   @extend h1;
   font-size: 2.4rem;
   line-height: 2.8rem;
   text-align: center;
-  color: $color-light3;
+  color: $color-dark4;
 }
-legend span {
-  color: $color-dark2;
+#addNewInfo_form {
+  @extend form;
+  background-color: $color-light3;
+  text-align: center;
+  width: min-content;
+}
+
+.add_property_form label {
+  color: $color-dark1;
+  align-self: flex-start;
+  font-size: 1.2rem;
+}
+
+legend span{
+  color: $color-pink;
   font-weight: 800;
 }
-.bodyAddNew label {
-  color: $color-dark1;
+.addNewInfo_body input {
+  background-color: $color-light1;
 }
 
-#submitformButton {
-  background-color: $color-pink;
- 
-}
 .Addbtnfieldset{
     display: flex;
-    flex-direction: column;
+    flex-direction: row-reverse;
+    gap: 0.5rem;
     align-items: end;
-   
 }
-
-.box {
+#submitformButton {
+  background-color: $color-pink;
+}
+#addNewInfo_form .box{
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
-  font-size: 1.2rem;
-}
-.box :first-child {
-  padding-bottom: 0.5rem;
-  font-size: 1.6rem;
 }
 .required label:after {
   content: "*";
@@ -50,17 +46,18 @@ legend span {
 }
 
 @media screen and (min-width: 768px) {
-  .bodyAddNew form {
-    width: 35rem;
-    
+  .addNewInfo_body form {
+    width: 25rem;
+    padding-left: 10rem;
+    padding-right: 10rem;
   }
-  .box {
-    gap: 0.4rem;
-
+  #addNewInfo_form .box{
+    gap: 0.5rem;
   }
-  #add-property-form fieldset{
-    padding-left: 3.2rem;
-    padding-right: 3.2rem;
-    
+  legend span{
+   font-size: 2.2rem;
+   line-height: 2.8rem;
   }
 }
+
+

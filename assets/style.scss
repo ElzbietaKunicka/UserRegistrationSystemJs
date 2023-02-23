@@ -4,23 +4,23 @@
 
 //Organisms
 
-// @import "./organisms/header";
-// @import "./organisms/main";
-// @import "./organisms/footer";
 @import "./organisms/logIn/header";
 @import "./organisms/logIn/main";
 @import "./organisms/logIn/footer";
 
-@import "./organisms/thenLogin/header";
-@import "./organisms/thenLogin/main";
+//@import "./organisms/thenLogin/header";
+//@import "./organisms/thenLogin/main";
 
-// add New Form
-@import "./organisms/AddNewInfo/body";
 @import "./organisms/AddNewInfo/main";
+@import "./organisms/AddNewInfo/body";
+@import "./organisms/dropdown";
+
+@import "./organisms/UpdateInfo/main";
+
+
 
 //Atoms
-@import "./organisms/atoms/button";
-
+//@import "./organisms/atoms/button";
 
 html {
   font-size: 62.5%;

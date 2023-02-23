@@ -9,7 +9,7 @@ del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
 dl, dt, dd, ol, ul, li,
-fieldset, form, .bodyAddNew form, label, legend,
+fieldset, form, #addNewInfo_form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
 figure, figcaption, footer, header, main, hgroup,
@@ -188,7 +188,7 @@ span {
   color: #ff3998;
 }
 
-form, .bodyAddNew form {
+form, #addNewInfo_form {
   padding-left: 2.4rem;
   padding-right: 2.4rem;
   border: 0.5rem solid #999999;
@@ -252,6 +252,71 @@ footer {
   text-align: center;
 }
 
+h2 {
+  font-size: 2.4rem;
+  line-height: 2.8rem;
+  text-align: center;
+  color: #999999;
+}
+
+#addNewInfo_form {
+  background-color: #cccccc;
+  text-align: center;
+  width: -moz-min-content;
+  width: min-content;
+}
+
+.add_property_form label {
+  color: #111111;
+  align-self: flex-start;
+  font-size: 1.2rem;
+}
+
+legend span {
+  color: #ff3998;
+  font-weight: 800;
+}
+
+.addNewInfo_body input, .addNewInfo_body .formHref, .addNewInfo_body .formButton {
+  background-color: #ffffff;
+}
+
+.Addbtnfieldset {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 0.5rem;
+  align-items: end;
+}
+
+#submitformButton {
+  background-color: #ff3998;
+}
+
+#addNewInfo_form .box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.required label:after {
+  content: "*";
+  color: #ff3998;
+}
+
+@media screen and (min-width: 768px) {
+  .addNewInfo_body form, .addNewInfo_body #addNewInfo_form {
+    width: 25rem;
+    padding-left: 10rem;
+    padding-right: 10rem;
+  }
+  #addNewInfo_form .box {
+    gap: 0.5rem;
+  }
+  legend span {
+    font-size: 2.2rem;
+    line-height: 2.8rem;
+  }
+}
 .dropbtn {
   display: inline-block;
   color: #999999;
@@ -299,97 +364,43 @@ dropdown {
     font-size: 1.4rem;
   }
 }
-.avatar {
-  border: 0.5rem solid #999999;
-  border-radius: 50%;
-  background-color: #555555;
-}
-
-#personalPage {
+.update {
   background-color: #111111;
-  padding: 2rem 2rem;
 }
 
-.avatarContainer {
-  width: 100%;
+.updatebtnfieldset {
   display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-@media screen and (min-width: 568px) {
-  .avatarContainer {
-    width: 30%;
-  }
-}
-.bodyAddNew {
-  background-color: #111111;
-}
-
-.bodyAddNew form {
-  background-color: #cccccc;
-  text-align: left;
-  width: -moz-max-content;
-  width: max-content;
-}
-
-.bodyAddNew input, .bodyAddNew .formHref, .bodyAddNew .formButton {
+.update_property_form {
   background-color: #ffffff;
+  border-color: #777777;
 }
 
-h2 {
-  font-size: 2.4rem;
-  line-height: 2.8rem;
-  text-align: center;
-  color: #cccccc;
-}
-
-legend span {
-  color: #555555;
-  font-weight: 800;
-}
-
-.bodyAddNew label {
-  color: #111111;
-}
-
-#submitformButton {
-  background-color: #ff3998;
-}
-
-.Addbtnfieldset {
-  display: flex;
-  flex-direction: column;
-  align-items: end;
+#updateInfo_form label {
+  color: #ff3998;
+  align-self: flex-start;
+  font-size: 1.2rem;
 }
 
 .box {
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
-  font-size: 1.2rem;
 }
 
-.box :first-child {
-  padding-bottom: 0.5rem;
-  font-size: 1.6rem;
-}
-
-.required label:after {
-  content: "*";
-  color: #ff3998;
+#updateInfo_form legend span {
+  color: #111111;
+  padding-bottom: 1rem;
 }
 
 @media screen and (min-width: 768px) {
-  .bodyAddNew form {
-    width: 35rem;
-  }
-  .box {
-    gap: 0.4rem;
-  }
-  #add-property-form fieldset {
-    padding-left: 3.2rem;
-    padding-right: 3.2rem;
+  .update_property_form {
+    width: 25rem;
+    padding-left: 10rem;
+    padding-right: 10rem;
   }
 }
 html {

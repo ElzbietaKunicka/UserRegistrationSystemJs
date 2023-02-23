@@ -1,4 +1,4 @@
-const form = document.getElementById("add-property-form"); ///
+ ///
 
 const citiesList = [
   "Vilnius",
@@ -95,6 +95,7 @@ const postProperty = async objectToSend => {
     console.log(error);
   }
 };
+const form = document.getElementById("addNewInfo_form");
 
 form.addEventListener("submit", event => {
   event.preventDefault();

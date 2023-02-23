@@ -129,7 +129,7 @@ const putInfo = async objectToSend => {
     console.log(error);
   }
 };
-const form = document.getElementById("add-property-form");
+const form = document.getElementById("updateInfo_form");
 form.addEventListener("submit", event => {
   event.preventDefault();
   const formData = new FormData(form); 

@@ -13,7 +13,7 @@
     />
     <link rel="stylesheet" href="./assets/style.css" />
 </head>
-<body>
+<body class="update">
     <header>
         <div class="header_wrapper_mobile">
           <div class="image_conteiner">
@@ -50,9 +50,9 @@
         <div>
           <h2> Information <span>update</span> form</h2>
         </div>
-        <form id="add-property-form">
+        <form id="updateInfo_form"class="update_property_form">
           <fieldset>
-            <div class="box required">
+            <div class="box">
               <legend><span>Personal Information:</span></legend>
               <label  for="persInfoName">Name</label>
               <input type="text" id="persInfoName" name="name"  maxlength="35" required />
@@ -73,7 +73,7 @@
             </div>
           </fieldset>
           <fieldset>
-            <div class="box required">
+            <div class="box">
               <legend><span>Contact Information:</span></legend>
             <label for="persInfoPhone">Phone</label>
             <input
@@ -92,7 +92,7 @@
             </div>
           </fieldset>
           <fieldset>
-            <div class="box required">
+            <div class="box">
               <legend><span>Address:</span></legend>
             <label for="persInfoCity">City</label>
             <select name="city" id="persInfoCity" >
@@ -121,9 +121,9 @@
             />
             </div>
           </fieldset>
-          <fieldset class="Addbtnfieldset">
+          <fieldset id="update_btnFieldset" class="updatebtnfieldset">
+            <button  class="formButton" onclick="window.location.href = './thenLogIn.html';">BACK</button>
             <button type="submit" class="formButton" id="submitformButton">Submit</button>
-            <button class="formButton" onclick="window.location.href = './thenLogIn.html';"> Go BACK </button>
           </fieldset>
         </form>
       </main>
