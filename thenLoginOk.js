@@ -88,6 +88,28 @@ let getAccountsNames = async () => {
 }
 getAccountsNames();
 
+let getAccountPersonalInfo = async() =>{
+  try {
+    const response = await fetch(
+      "http://localhost:5200/api/PersonalInformations/AccountsNames",
+      {
+        headers: {
+          Authorization: `Bearer ${getCookie("token")}`,
+          "Content-Type": "application/json"
+        }
+      }
+    );
+
+    if (response.ok) {
+      const data = await response.json();
+      
+      //createAccountList(data);
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 
 
 
