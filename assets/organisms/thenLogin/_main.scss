@@ -22,6 +22,10 @@
     flex-direction: row;
     justify-content: right;
     //border: 0.5rem solid $color-dark1;
+    color: $color-pink;
+    gap:0.2rem;
+}
+#errorMessage{
     color: red;
 }
 

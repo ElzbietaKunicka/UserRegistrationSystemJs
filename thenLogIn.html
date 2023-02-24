@@ -51,14 +51,23 @@
     </header>
 
     <main>
-      <div class="search_Container">
-        <label for="search">Find friend:</label>
-       <select id="search">
-        <option value="" disabled selected>Search...</option>
-       </select>
-       <button type="submit"><i class="fa fa-search"></i></button>
-      
-      </div>
+      <form id="search_form">
+        <div class="search_Container">
+          <label for="search">Search user:</label>
+          <input id="search_input_Id" list="search">
+          <datalist id="search"></datalist>
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </div>
+        <div>
+          <div id="errorMessage_Container">
+            <p id="errorMessage"></p>
+          </div>
+          <div id="selected_account_information">
+            <p id="selected_accounts_name" class="paragraph"></p>
+          </div>
+        </div>
+      </form>
+
       <div id="personalPage">
         <div class="avatarContainer">
           <img
@@ -77,7 +86,6 @@
           Update Personal Information
         </button>
         </div>
-        
       </div>
     </main>
     <footer>

@@ -1,4 +1,3 @@
-
 const getCookie = name => {
   const cookies = document.cookie.split(";");
   for (let i = 0; i < cookies.length; i++) {
@@ -47,28 +46,59 @@ let getCurrentUserName = async () => {
   } catch (error) {
     console.error(error);
   }
-}
+};
 getCurrentUserName();
 
-
-const createAccountList = properties => {
+const createSearchList = properties => {
   if (properties && properties.length) {
-  properties.forEach(name => {
-  const namesList = document.getElementById("search");
-  const option = document.createElement("option");
-  option.textContent = name;
-  namesList.append(option);
+    properties.forEach(account => {
+      const namesList = document.getElementById("search");
+      const option = document.createElement("option");
+      option.value = account.id + " " + account.userName;
+      namesList.append(option);
+    });
+  }
+};
+
+let getAccountsIdAndUsernames = async () => {
+  try {
+    const response = await fetch(
+      "http://localhost:5200/api/PersonalInformations/AccountsIdAndUsernames",
+      {
+        headers: {
+          Authorization: `Bearer ${getCookie("token")}`,
+          "Content-Type": "application/json"
+        }
+      }
+    );
+    if (response.ok) {
+      const data = await response.json();
+      createSearchList(data);
+    }
+  } catch (error) {
+    console.error("does not connecting to local database");
+  }
+};
+getAccountsIdAndUsernames();
+
+const searchForm = document.getElementById("search_form");
+searchForm.addEventListener("submit", event => {
+  event.preventDefault();
+  const inputAccountId = document
+    .getElementById("search_input_Id")
+    .value.split(" ")[0];
+  console.log(inputAccountId);
+  getAccountPersonalInfo(inputAccountId);
 });
-      // const ulElem = document.getElementById("accountsName");
-      // const lielem = document.createElement("li");
-      // lielem.textContent = element;
-      // ulElem.append(lielem);
-}
-}
-let getAccountsNames = async () => {
+
+let getAccountPersonalInfo = async accountId => {
+  const errorMessageContainer = document.getElementById(
+    "errorMessage_Container"
+  );
+  const errorParagraph = document.getElementById("errorMessage");
   try {
     const response = await fetch(
-      "http://localhost:5200/api/PersonalInformations/AccountsNames",
+      `http://localhost:5200/api/PersonalInformations/GetById/${accountId}`,
       {
         headers: {
           Authorization: `Bearer ${getCookie("token")}`,
@@ -76,43 +106,33 @@ let getAccountsNames = async () => {
         }
       }
     );
+    const data = await response.json();
+    const div = document.getElementById("selected_account_information");
+    const selectedName = document.getElementById("selected_accounts_name");
 
     if (response.ok) {
-      const data = await response.json();
-      
-      createAccountList(data);
-    }
-  } catch (error) {
-    console.error(error);
-  }
-}
-getAccountsNames();
+      //const data = await response.json();
+      console.log(data);
+      // const div = document.getElementById("selected_account_information");
+      // const name = document.getElementById("name");
 
-let getAccountPersonalInfo = async() =>{
-  try {
-    const response = await fetch(
-      "http://localhost:5200/api/PersonalInformations/AccountsNames",
-      {
-        headers: {
-          Authorization: `Bearer ${getCookie("token")}`,
-          "Content-Type": "application/json"
-        }
+      if (data.personalInformation == null) {
+        selectedName.textContent = data.userName + " \n daugian nera info";
+      } else {
+        selectedName.textContent =
+          data.userName + data.personalInformation.name;
       }
-    );
-
-    if (response.ok) {
-      const data = await response.json();
-      
-      //createAccountList(data);
+      //div.append(name);
+    } else if (response.length == null) {
+      selectedName.textContent = "daugian nera info";
     }
+
+    div.append(selectedName);
   } catch (error) {
-    console.error(error);
+    console.error("The user ID you entered does not exist. Try again");
+    errorParagraph.textContent = "The user ID you entered does not exist.";
   }
-}
-
-
-
-
+};
 
 // function getRole() {
 //   let jwt = parseJwt();
