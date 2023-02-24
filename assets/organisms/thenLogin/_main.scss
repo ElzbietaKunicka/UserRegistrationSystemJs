@@ -16,6 +16,7 @@
 }
 #hello {
     padding: 0rem;
+    
 }
 .search_Container{
     display: flex;
@@ -27,6 +28,15 @@
 }
 #errorMessage{
     color: red;
+}
+
+h3{
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+    color: $color-dark4;
+}
+#selected_accounts_name{
+    color:$color-pink;
 }
 
 

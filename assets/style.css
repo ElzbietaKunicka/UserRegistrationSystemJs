@@ -436,6 +436,16 @@ dropdown {
   color: red;
 }
 
+h3 {
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+  color: #999999;
+}
+
+#selected_accounts_name {
+  color: #ff3998;
+}
+
 @media screen and (min-width: 568px) {
   .avatarContainer {
     width: 30%;

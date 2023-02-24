@@ -11,7 +11,10 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <link rel="stylesheet" href="./assets/style.css" />
   </head>
   <body>
@@ -52,9 +55,9 @@
 
     <main>
       <form id="search_form">
-        <div class="search_Container">
+        <div id="searchContainerId" class="search_Container">
           <label for="search">Search user:</label>
-          <input id="search_input_Id" list="search">
+          <input id="search_input_Id" list="search" />
           <datalist id="search"></datalist>
           <button type="submit"><i class="fa fa-search"></i></button>
         </div>
@@ -80,11 +83,11 @@
             <!-- userName -->
           </div>
           <button
-          class="formButton"
-          onclick="window.location.href = './updateInfoForm.html';"
-        >
-          Update Personal Information
-        </button>
+            class="formButton"
+            onclick="window.location.href = './updateInfoForm.html';"
+          >
+            Update Personal Information
+          </button>
         </div>
       </div>
     </main>

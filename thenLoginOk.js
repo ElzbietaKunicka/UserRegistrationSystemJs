@@ -82,6 +82,7 @@ let getAccountsIdAndUsernames = async () => {
 getAccountsIdAndUsernames();
 
 const searchForm = document.getElementById("search_form");
+
 searchForm.addEventListener("submit", event => {
   event.preventDefault();
   const inputAccountId = document
@@ -91,6 +92,9 @@ searchForm.addEventListener("submit", event => {
   getAccountPersonalInfo(inputAccountId);
 });
 
+function reset() {
+  window.location.reload();
+}
 let getAccountPersonalInfo = async accountId => {
   const errorMessageContainer = document.getElementById(
     "errorMessage_Container"
@@ -106,28 +110,87 @@ let getAccountPersonalInfo = async accountId => {
         }
       }
     );
-    const data = await response.json();
+    const searchContainer = document.getElementById("searchContainerId");
+    searchContainer.innerHTML = "";
     const div = document.getElementById("selected_account_information");
+
+    const buttonReset = document.createElement("button");
+    buttonReset.classList.add("formButton");
+    buttonReset.innerHTML = "Back to search";
+    buttonReset.onclick = function () {
+      reset();
+    };
+
+    //buttonReset.onclick() = "window.location.reload();";
     const selectedName = document.getElementById("selected_accounts_name");
 
     if (response.ok) {
-      //const data = await response.json();
+      const data = await response.json();
       console.log(data);
-      // const div = document.getElementById("selected_account_information");
+
       // const name = document.getElementById("name");
 
       if (data.personalInformation == null) {
-        selectedName.textContent = data.userName + " \n daugian nera info";
-      } else {
-        selectedName.textContent =
-          data.userName + data.personalInformation.name;
-      }
-      //div.append(name);
-    } else if (response.length == null) {
-      selectedName.textContent = "daugian nera info";
-    }
+        const buttonBack = document.createElement("button");
+        buttonBack.classList.add("formButton");
+        buttonBack.innerHTML = "Back to search";
+        errorMessageContainer.append(buttonBack);
+        buttonBack.onclick = function () {
+          reset();
+        };
 
-    div.append(selectedName);
+        selectedName.textContent = `${data.userName} hasn't Filled Out Personal information`;
+      } else {
+        selectedName.textContent = data.userName;
+
+        const headingPersonalInfo = document.createElement("h3");
+        headingPersonalInfo.textContent = "Personal Information:";
+        const name = document.createElement("p");
+        name.textContent = `Name: ${data.personalInformation.name}`;
+        const surname = document.createElement("p");
+        surname.textContent = `Surname: ${data.personalInformation.surname}`;
+        const personalCode = document.createElement("p");
+        personalCode.textContent = `PersonalCode: ${data.personalInformation.personalCode}`;
+
+        const headingContact = document.createElement("h3");
+        headingContact.textContent = "Contact Information:";
+        const phone = document.createElement("p");
+        phone.textContent = `Phone: ${data.personalInformation.phone}`;
+        const email = document.createElement("p");
+        email.textContent = `Email: ${data.personalInformation.email}`;
+
+        const headingAddress = document.createElement("h3");
+        headingAddress.textContent = "Address";
+        const city = document.createElement("p");
+        city.textContent = `City: ${data.personalInformation.residentialAddress.city}`;
+        const street = document.createElement("p");
+        street.textContent = `Street: ${data.personalInformation.residentialAddress.street}`;
+        const homeNumber = document.createElement("p");
+        homeNumber.textContent = `HomeNumber: ${data.personalInformation.residentialAddress.homeNumber}`;
+        const apartmentNumber = document.createElement("p");
+        apartmentNumber.textContent = `ApartmentNumber: ${data.personalInformation.residentialAddress.apartmentNumber}`;
+        div.prepend(buttonReset);
+        div.append(
+          headingPersonalInfo,
+          name,
+          surname,
+          personalCode,
+          headingContact,
+          phone,
+          email,
+          headingAddress,
+          city,
+          street,
+          homeNumber,
+          apartmentNumber
+        );
+      }
+    }
+    // } else if (response.length == null) {
+    //   selectedName.textContent = "daugiau nera info";
+    // }
+
+    //div.append(selectedName, personalInfoName);
   } catch (error) {
     console.error("The user ID you entered does not exist. Try again");
     errorParagraph.textContent = "The user ID you entered does not exist.";
