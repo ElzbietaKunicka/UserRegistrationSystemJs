@@ -40,7 +40,7 @@ let getCurrentUserName = async () => {
 
     if (response.ok) {
       const userName = await response.text();
-      const nameParagraf = document.getElementById("hello");
+      const nameParagraf = document.getElementById("current_username");
       nameParagraf.textContent = userName;
     }
   } catch (error) {
@@ -99,7 +99,14 @@ let getAccountPersonalInfo = async accountId => {
   const errorMessageContainer = document.getElementById(
     "errorMessage_Container"
   );
-  const errorParagraph = document.getElementById("errorMessage");
+  const searchOutputContainer = document.getElementById("search_output_container");
+  const buttonBack = document.createElement("button");
+  buttonBack.classList.add("formButton");
+  buttonBack.innerHTML = "Back to search";
+  searchOutputContainer.prepend(buttonBack);
+  buttonBack.onclick = function () {
+    reset();
+  };
   try {
     const response = await fetch(
       `http://localhost:5200/api/PersonalInformations/GetById/${accountId}`,
@@ -110,39 +117,19 @@ let getAccountPersonalInfo = async accountId => {
         }
       }
     );
-    const searchContainer = document.getElementById("searchContainerId");
+    const searchContainer = document.getElementById("search_input_container");
     searchContainer.innerHTML = "";
     const div = document.getElementById("selected_account_information");
-
-    const buttonReset = document.createElement("button");
-    buttonReset.classList.add("formButton");
-    buttonReset.innerHTML = "Back to search";
-    buttonReset.onclick = function () {
-      reset();
-    };
-
-    //buttonReset.onclick() = "window.location.reload();";
+    const userNameBySelectedId = document.getElementById("selected_userName_by_id");
     const selectedName = document.getElementById("selected_accounts_name");
-
-    if (response.ok) {
+    
+    if (response.ok ) {
       const data = await response.json();
       console.log(data);
-
-      // const name = document.getElementById("name");
-
+      userNameBySelectedId.textContent = `${data.userName}`;
       if (data.personalInformation == null) {
-        const buttonBack = document.createElement("button");
-        buttonBack.classList.add("formButton");
-        buttonBack.innerHTML = "Back to search";
-        errorMessageContainer.append(buttonBack);
-        buttonBack.onclick = function () {
-          reset();
-        };
-
-        selectedName.textContent = `${data.userName} hasn't Filled Out Personal information`;
+        selectedName.textContent = "hasn't Filled Out Personal information";
       } else {
-        selectedName.textContent = data.userName;
-
         const headingPersonalInfo = document.createElement("h3");
         headingPersonalInfo.textContent = "Personal Information:";
         const name = document.createElement("p");
@@ -169,7 +156,6 @@ let getAccountPersonalInfo = async accountId => {
         homeNumber.textContent = `HomeNumber: ${data.personalInformation.residentialAddress.homeNumber}`;
         const apartmentNumber = document.createElement("p");
         apartmentNumber.textContent = `ApartmentNumber: ${data.personalInformation.residentialAddress.apartmentNumber}`;
-        div.prepend(buttonReset);
         div.append(
           headingPersonalInfo,
           name,
@@ -186,14 +172,10 @@ let getAccountPersonalInfo = async accountId => {
         );
       }
     }
-    // } else if (response.length == null) {
-    //   selectedName.textContent = "daugiau nera info";
-    // }
-
-    //div.append(selectedName, personalInfoName);
   } catch (error) {
+    const errorParagraph = document.getElementById("errorMessage");
     console.error("The user ID you entered does not exist. Try again");
-    errorParagraph.textContent = "The user ID you entered does not exist.";
+    errorParagraph.innerText ="The user ID you entered does not exist.";
   }
 };
 

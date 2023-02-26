@@ -53,20 +53,21 @@
       </div>
     </header>
 
-    <main>
+    <main id="main_thenlogin">
       <form id="search_form">
-        <div id="searchContainerId" class="search_Container">
-          <label for="search">Search user:</label>
+        <div id="search_input_container" class="search_Container">
+          <label for="search">Search:</label>
           <input id="search_input_Id" list="search" />
           <datalist id="search"></datalist>
           <button type="submit"><i class="fa fa-search"></i></button>
         </div>
-        <div>
-          <div id="errorMessage_Container">
-            <p id="errorMessage"></p>
-          </div>
+        <div id="search_output_container">
           <div id="selected_account_information">
+            <p id="selected_userName_by_id" class="paragraph"></p>
             <p id="selected_accounts_name" class="paragraph"></p>
+          </div>
+          <div id="errorMessage_Container">
+            <p class="paragraph" id="errorMessage"></p>
           </div>
         </div>
       </form>
@@ -79,8 +80,8 @@
             class="avatar"
           />
           <div>
-            <p id="hello" class="paragraph"></p>
-            <!-- userName -->
+            <p id="current_username" class="paragraph"></p>
+            <!-- Current userName -->
           </div>
           <button
             class="formButton"

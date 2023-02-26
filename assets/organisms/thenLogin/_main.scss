@@ -14,31 +14,76 @@
   flex-direction: column;
   gap: 2rem;
 }
-#hello {
-    padding: 0rem;
-    
-}
-.search_Container{
-    display: flex;
-    flex-direction: row;
-    justify-content: right;
-    //border: 0.5rem solid $color-dark1;
-    color: $color-pink;
-    gap:0.2rem;
-}
-#errorMessage{
-    color: red;
+#current_username {
+  padding: 0rem;
+  font-size: 3.2rem;
+  line-height: 3.2rem;
 }
 
-h3{
-    padding-bottom: 2rem;
-    padding-top: 2rem;
-    color: $color-dark4;
+#search_form {
+  padding-left: 0rem;
+  padding-right: 0rem;
+  width: 100%;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  display: grid;
+  grid-template-row: auto auto;
+  gap: 0.5rem;
 }
-#selected_accounts_name{
-    color:$color-pink;
+#search_input_container {
+  width: 100%;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
 }
 
+#search_input_container label {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  justify-self: end;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  align-self: center;
+  color: $color-dark4;
+  width: max-content;
+}
+#search_input_container input {
+  grid-column-start: 4;
+  grid-column-end: 12;
+  background-color: $color-light1;
+  border: none;
+  padding-right: 0.5rem;
+}
+#search_input_container button {
+  grid-column-start: 12;
+  grid-column-end: 13;
+  background-color: $color-pink;
+  border-color: $color-light1;
+  margin-right: 0.5rem;
+ 
+}
+
+#search_output_container {
+  width: 80%;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  justify-self: center;
+}
+
+#errorMessage {
+  color: red;
+}
+
+h3 {
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+  color: $color-dark4;
+}
+#username_Span {
+  color: $color-pink;
+  text-decoration: underline;
+}
 
 @media screen and (min-width: 568px) {
   .avatarContainer {

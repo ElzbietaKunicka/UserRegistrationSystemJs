@@ -88,6 +88,8 @@ const postProperty = async objectToSend => {
       }
       
     } else {
+      console.log(preview.error.name);
+      
       alert("Please make sure all fields are filled in correctly.");
       
     }

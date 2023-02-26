@@ -420,16 +420,64 @@ dropdown {
   gap: 2rem;
 }
 
-#hello {
+#current_username {
   padding: 0rem;
+  font-size: 3.2rem;
+  line-height: 3.2rem;
 }
 
-.search_Container {
-  display: flex;
-  flex-direction: row;
-  justify-content: right;
-  color: #ff3998;
-  gap: 0.2rem;
+#search_form {
+  padding-left: 0rem;
+  padding-right: 0rem;
+  width: 100%;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  display: grid;
+  grid-template-row: auto auto;
+  gap: 0.5rem;
+}
+
+#search_input_container {
+  width: 100%;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+#search_input_container label {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  justify-self: end;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  align-self: center;
+  color: #999999;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+#search_input_container input, #search_input_container .formHref, #search_input_container .formButton {
+  grid-column-start: 4;
+  grid-column-end: 12;
+  background-color: #ffffff;
+  border: none;
+  padding-right: 0.5rem;
+}
+
+#search_input_container button {
+  grid-column-start: 12;
+  grid-column-end: 13;
+  background-color: #ff3998;
+  border-color: #ffffff;
+  margin-right: 0.5rem;
+}
+
+#search_output_container {
+  width: 80%;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  justify-self: center;
 }
 
 #errorMessage {
@@ -442,8 +490,9 @@ h3 {
   color: #999999;
 }
 
-#selected_accounts_name {
+#username_Span {
   color: #ff3998;
+  text-decoration: underline;
 }
 
 @media screen and (min-width: 568px) {

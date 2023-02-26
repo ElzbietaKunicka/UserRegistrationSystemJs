@@ -62,13 +62,13 @@
           <div class="box required">
             <legend><span>Personal Information:</span></legend>
             <label  for="persInfoName">Name</label>
-            <input type="text" id="persInfoName" name="name" placeholder="Name" maxlength="35" required />
+            <input type="text" id="persInfoName" name="name" placeholder="Name" maxlength="35" minlength="3" required />
             <label for="persInfoSurname">Surname</label>
             <input
               type="text"
               id="persInfoSurname"
               name="surname"
-              placeholder="Surname" maxlength="35" required
+              placeholder="Surname" maxlength="35" minlength="3" required
             />
             <label for="persInfoPersonalCode">PersonalCode</label>
             <input
@@ -94,7 +94,7 @@
             type="email"
             id="persInfoEmail"
             name="email"
-            placeholder="example@gmail.com" maxlength="255" required
+            placeholder="example@gmail.com" maxlength="255" minLength="7" required
           />
           </div>
         </fieldset>
@@ -110,7 +110,7 @@
             type="text"
             id="persInfoStreet"
             name="street"
-            placeholder="street" maxlength="255" required
+            placeholder="street" maxlength="255" minlength="3" required
           />
           <label for="persInfoHomeNumber">HomeNumber</label>
           <input
