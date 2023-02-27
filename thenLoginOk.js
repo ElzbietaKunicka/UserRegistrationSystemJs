@@ -99,7 +99,9 @@ let getAccountPersonalInfo = async accountId => {
   const errorMessageContainer = document.getElementById(
     "errorMessage_Container"
   );
-  const searchOutputContainer = document.getElementById("search_output_container");
+  const searchOutputContainer = document.getElementById(
+    "search_output_container"
+  );
   const buttonBack = document.createElement("button");
   buttonBack.classList.add("formButton");
   buttonBack.innerHTML = "Back to search";
@@ -120,10 +122,12 @@ let getAccountPersonalInfo = async accountId => {
     const searchContainer = document.getElementById("search_input_container");
     searchContainer.innerHTML = "";
     const div = document.getElementById("selected_account_information");
-    const userNameBySelectedId = document.getElementById("selected_userName_by_id");
+    const userNameBySelectedId = document.getElementById(
+      "selected_userName_by_id"
+    );
     const selectedName = document.getElementById("selected_accounts_name");
-    
-    if (response.ok ) {
+
+    if (response.ok) {
       const data = await response.json();
       console.log(data);
       userNameBySelectedId.textContent = `${data.userName}`;
@@ -174,56 +178,62 @@ let getAccountPersonalInfo = async accountId => {
     }
   } catch (error) {
     const errorParagraph = document.getElementById("errorMessage");
-    console.error("The user ID you entered does not exist. Try again");
-    errorParagraph.innerText ="The user ID you entered does not exist.";
+    //console.error("The user ID you entered does not exist. Try again");
+    errorParagraph.innerText = "The user ID you entered does not exist.";
   }
 };
 
-// function getRole() {
-//   let jwt = parseJwt();
-//   console.log(
-//     jwt["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
-//   );
-//   return jwt["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
-// }
-// getRole();
+function getRole() {
+  let jwt = parseJwt();
+  // console.log(
+  //   jwt["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
+  // );
+  return jwt["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
+}
+getRole();
 
-//   if (getRole() == "Admin" || getRole() == "User") {
-//     async function fetchUsers() {
-//       try {
-//         const response = await fetch("http://localhost:5200/api/PersonalInformations", {
-//           headers: {
-//             Authorization: `Bearer ${getCookie("token")}`
-//           }
-//         });
-//         if (response.ok) {
-//           const users = await response.json();
-//           users.forEach(user => {
+if (getRole() == "User") {
+  const button = document.createElement("button");
+  const adminContainer = document.getElementById("search_output_container");
+  adminContainer.append(button);
 
-//             const getButton = document.createElement("button");
-//            getButton.textContent = "Get";
-//              getButton.addEventListener("click", async () => {
-//             try {
-//               const response = await fetch(
-//                 `http://localhost:5200/api/PersonalInformations/`,
-//                 {
-//                   method: "GET",
-//                   headers: {
-//                     Authorization: `Bearer ${getCookie("token")}`
-//                   }
-//                 }
-//               );
-//               if (response.ok) {
-//                 console.log("get info");
-//               } else {
-//                 console.error("Failed to get car");
-//               }
-//             } catch (error) {
-//               console.error(error);
-//             }
-//           });
-//         }
-//       }
-//     }
-//   }
-// }
+  button.textContent = "ištrinti";
+  button.setAttribute("class", "delete-button");
+  button.setAttribute("type", "submit");
+
+  searchForm.addEventListener("submit", event => {
+    event.preventDefault();
+    button.dataset.id = document
+      .getElementById("search_input_Id")
+      .value.split(" ")[0];
+    console.log(button.dataset.id);
+
+    button.addEventListener("click", e => {
+      e.preventDefault();
+
+      const accountId = e.target.dataset.id;
+      const confirmed = confirm("Are you sure?");
+
+      if (accountId && confirmed) {
+        deleteAccount(accountId);
+      }
+    });
+  });
+
+  const deleteAccount = async accountId => {
+    const response = await fetch(
+      `http://localhost:5200/api/PersonalInformations/${accountId}`,
+      {
+        method: "DELETE",
+        headers: {
+          //"Content-Type": "application/json",
+          Authorization: `Bearer ${getCookie("token")}`
+        }
+      }
+    );
+    if (response.ok) {
+      //reset();
+      window.location.href = "";
+    }
+  };
+}
