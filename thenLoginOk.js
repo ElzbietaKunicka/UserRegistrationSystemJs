@@ -26,6 +26,15 @@ function parseJwt() {
   return JSON.parse(jsonPayload);
 }
 
+function getRole() {
+  let jwt = parseJwt();
+  return jwt["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
+}
+
+function reset() {
+  window.location.reload();
+}
+
 let getCurrentUserName = async () => {
   try {
     const response = await fetch(
@@ -82,19 +91,25 @@ let getAccountsIdAndUsernames = async () => {
 getAccountsIdAndUsernames();
 
 const searchForm = document.getElementById("search_form");
+//  searchForm.addEventListener("submit", event => {
+//   event.preventDefault();
+//   const inputAccountId = document
+//     .getElementById("search_input_Id")
+//     .value.split(" ")[0];
+//   console.log(inputAccountId);
+
+//   getAccountPersonalInfo(inputAccountId);
+// });
+
+function getId() {
+  return document.getElementById("search_input_Id").value.split(" ")[0];
+}
 
 searchForm.addEventListener("submit", event => {
   event.preventDefault();
-  const inputAccountId = document
-    .getElementById("search_input_Id")
-    .value.split(" ")[0];
-  console.log(inputAccountId);
-  getAccountPersonalInfo(inputAccountId);
+  getAccountPersonalInfo(getId());
 });
 
-function reset() {
-  window.location.reload();
-}
 let getAccountPersonalInfo = async accountId => {
   const errorMessageContainer = document.getElementById(
     "errorMessage_Container"
@@ -109,6 +124,7 @@ let getAccountPersonalInfo = async accountId => {
   buttonBack.onclick = function () {
     reset();
   };
+  const errorParagraph = document.getElementById("errorMessage");
   try {
     const response = await fetch(
       `http://localhost:5200/api/PersonalInformations/GetById/${accountId}`,
@@ -125,14 +141,12 @@ let getAccountPersonalInfo = async accountId => {
     const userNameBySelectedId = document.getElementById(
       "selected_userName_by_id"
     );
-    const selectedName = document.getElementById("selected_accounts_name");
-
     if (response.ok) {
       const data = await response.json();
       console.log(data);
       userNameBySelectedId.textContent = `${data.userName}`;
       if (data.personalInformation == null) {
-        selectedName.textContent = "hasn't Filled Out Personal information";
+        errorParagraph.textContent = "hasn't Filled Out Personal information";
       } else {
         const headingPersonalInfo = document.createElement("h3");
         headingPersonalInfo.textContent = "Personal Information:";
@@ -177,63 +191,97 @@ let getAccountPersonalInfo = async accountId => {
       }
     }
   } catch (error) {
-    const errorParagraph = document.getElementById("errorMessage");
-    //console.error("The user ID you entered does not exist. Try again");
-    errorParagraph.innerText = "The user ID you entered does not exist.";
+    errorParagraph.textContent = "The user ID you entered does not exist.";
   }
 };
 
-function getRole() {
-  let jwt = parseJwt();
-  // console.log(
-  //   jwt["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
-  // );
-  return jwt["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
-}
-getRole();
-
-if (getRole() == "User") {
-  const button = document.createElement("button");
+function createDeleteBtn() {
   const adminContainer = document.getElementById("search_output_container");
-  adminContainer.append(button);
-
-  button.textContent = "ištrinti";
-  button.setAttribute("class", "delete-button");
-  button.setAttribute("type", "submit");
-
+  const button = document.createElement("button");
   searchForm.addEventListener("submit", event => {
     event.preventDefault();
-    button.dataset.id = document
-      .getElementById("search_input_Id")
-      .value.split(" ")[0];
-    console.log(button.dataset.id);
+    adminContainer.append(button);
+    button.textContent = "Delete account";
+    button.setAttribute("class", "formButton");
+    button.setAttribute("type", "submit");
+    button.dataset.id = getId();
+    console.log(getId());
 
+    //then click button delete
     button.addEventListener("click", e => {
       e.preventDefault();
-
-      const accountId = e.target.dataset.id;
+      const accountId = button.dataset.id;
       const confirmed = confirm("Are you sure?");
-
       if (accountId && confirmed) {
         deleteAccount(accountId);
       }
     });
   });
-
-  const deleteAccount = async accountId => {
-    const response = await fetch(
-      `http://localhost:5200/api/PersonalInformations/${accountId}`,
-      {
-        method: "DELETE",
-        headers: {
-          //"Content-Type": "application/json",
-          Authorization: `Bearer ${getCookie("token")}`
-        }
-      }
-    );
-    if (response.ok) {
-      //reset();
-      window.location.href = "";
-    }
-  };
 }
+
+if (getRole() == "Admin") {
+  createDeleteBtn();
+}
+
+const deleteAccount = async accountId => {
+  const response = await fetch(
+    `http://localhost:5200/api/PersonalInformations/${accountId}`,
+    {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${getCookie("token")}`
+      }
+    }
+  );
+  if (response.ok) {
+    alert("Account has been successfully deleted!");
+    reset();
+  }
+};
+
+// if (getRole() == "User") {
+//   searchForm.addEventListener("submit", event => {
+//     event.preventDefault();
+// //     const paratext = document.getElementById("selected_userName_by_id");
+// // const text = paratext.textContent;
+// // console.log(text);
+//     const button = document.createElement("button");
+//     const adminContainer = document.getElementById("search_output_container");
+//     adminContainer.append(button);
+//     button.textContent = "Delete account";
+//     button.setAttribute("class", "formButton");
+//     button.setAttribute("type", "submit");
+
+//     button.dataset.id = document
+//       .getElementById("search_input_Id")
+//       .value.split(" ")[0];
+
+//     button.addEventListener("click", e => {
+//       e.preventDefault();
+//       const accountId =  button.dataset.id;
+//       console.log(accountId);
+//       //const accountId = e.target.dataset.id;
+//       console.log(e.target.dataset.id);
+//       const confirmed = confirm("Are you sure?");
+
+//       if (accountId && confirmed) {
+//         deleteAccount(accountId);
+//       }
+//     });
+//   });
+
+//   const deleteAccount = async accountId => {
+//     const response = await fetch(
+//       `http://localhost:5200/api/PersonalInformations/${accountId}`,
+//       {
+//         method: "DELETE",
+//         headers: {
+//           Authorization: `Bearer ${getCookie("token")}`
+//         }
+//       }
+//     );
+//     if (response.ok) {
+//       reset();
+//     }
+//   };
+// }
