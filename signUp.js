@@ -1,4 +1,4 @@
-const form = document.querySelector("#signUp");
+const form = document.querySelector("#signUp_form");
 function reset() {
   window.location.reload();
 }
@@ -33,7 +33,7 @@ form.addEventListener("submit", async e => {
       messageParagraph.style.color = "#ff3998";
       messageParagraph.textContent = `System account is created. User name is ${result}.
       Now you can Login`;
-      setTimeout(backToLoginForm, 5000);
+      setTimeout(backToLoginForm, 3000);
     }
     resultMessageContainer.append(messageParagraph);
   } catch (error) {
