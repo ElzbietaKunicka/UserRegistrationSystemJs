@@ -42,17 +42,17 @@ header {
 }
 
 //menu line
-.menu-line1 {
+.menu_line1 {
   width: 2.4rem;
   height: 0.4rem;
   background: $color-dark1;
   border-radius: 0.3rem;
 }
-.menu-line2 {
-  @extend .menu-line1;
+.menu_line2 {
+  @extend .menu_line1;
 }
-.menu-line3 {
-  @extend .menu-line1;
+.menu_line3 {
+  @extend .menu_line1;
 }
 
 @media screen and (min-width: 768px) {
@@ -61,17 +61,17 @@ header {
     padding-right: 8rem;
     padding-top: 3.8rem;
   }
-  .menu-line1 {
+  .menu_line1 {
     overflow: hidden;
     height: 0;
     width: 0;
   }
-  .menu-line2 {
+  .menu_line2 {
     overflow: hidden;
     height: 0;
     width: 0;
   }
-  .menu-line3 {
+  .menu_line3 {
     overflow: hidden;
     height: 0;
     width: 0;

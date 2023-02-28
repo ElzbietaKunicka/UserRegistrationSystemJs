@@ -102,7 +102,7 @@ header, footer, main {
   cursor: pointer;
 }
 
-.menu-line1, .menu-line3, .menu-line2 {
+.menu_line1, .menu_line3, .menu_line2 {
   width: 2.4rem;
   height: 0.4rem;
   background: #111111;
@@ -115,17 +115,17 @@ header, footer, main {
     padding-right: 8rem;
     padding-top: 3.8rem;
   }
-  .menu-line1, .menu-line2, .menu-line3 {
+  .menu_line1, .menu_line2, .menu_line3 {
     overflow: hidden;
     height: 0;
     width: 0;
   }
-  .menu-line2 {
+  .menu_line2 {
     overflow: hidden;
     height: 0;
     width: 0;
   }
-  .menu-line3 {
+  .menu_line3 {
     overflow: hidden;
     height: 0;
     width: 0;
