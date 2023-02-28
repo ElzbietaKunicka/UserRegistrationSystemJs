@@ -22,7 +22,6 @@ const citiesList = [
   "Gargždai",
   "Druskininkai"
 ];
-
 citiesList.forEach(city => {
   const addCity = document.getElementById("persInfoCity");
   const optionList = document.createElement("option");
@@ -74,17 +73,16 @@ const postProperty = async objectToSend => {
     if (response.ok) {
       const resultMessageContainer = document.getElementById("statusMessages");
       const messageParagraph = document.createElement("p");
-      messageParagraph.textContent = "Thank you for filling out your information!";
+      messageParagraph.textContent =
+        "Thank you for filling out your information!";
       messageParagraph.style.color = "pink";
       messageParagraph.style.paddingTop = "3rem";
       messageParagraph.style.fontSize = "2rem";
       resultMessageContainer.append(messageParagraph);
-
-      setTimeout(time, 5000);
+      setTimeout(time, 4000);
       function time() {
         window.location.href = "./thenLogIn.html";
       }
-      
     } else {
       alert("Please make sure all fields are filled in correctly.");
     }
@@ -93,7 +91,6 @@ const postProperty = async objectToSend => {
   }
 };
 const form = document.getElementById("addNewInfo_form");
-
 form.addEventListener("submit", event => {
   event.preventDefault();
   const formData = new FormData(form);
@@ -106,7 +103,6 @@ form.addEventListener("submit", event => {
   const street = formData.get("street");
   const homeNumber = formData.get("homeNumber");
   const apartmentNumber = formData.get("apartmentNumber");
-
   const formObject = {
     name,
     surname,

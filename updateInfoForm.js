@@ -8,7 +8,6 @@ const getCookie = name => {
   }
   return "";
 };
-
 function parseJwt() {
   let token = getCookie("token");
   let base64Url = token.split(".")[1];
@@ -25,7 +24,6 @@ function parseJwt() {
   console.log(JSON.parse(jsonPayload));
   return JSON.parse(jsonPayload);
 }
-//// Generate Select
 const citiesList = [
   "Vilnius",
   "Kaunas",
@@ -50,7 +48,6 @@ const citiesList = [
   "Gargždai",
   "Druskininkai"
 ];
-
 citiesList.forEach(city => {
   const addCity = document.getElementById("persInfoCity");
   const optionList = document.createElement("option");
@@ -69,35 +66,27 @@ const getInformation = async () => {
         }
       }
     );
-
     if (response.ok) {
       const data = await response.json();
       const nameInput = document.getElementById("persInfoName");
       nameInput.value = data.name;
-
       const surnameInput = document.getElementById("persInfoSurname");
       surnameInput.value = data.surname;
-
       const personalCodeInput = document.getElementById("persInfoPersonalCode");
       personalCodeInput.value = data.personalCode;
-
       const phoneInput = document.getElementById("persInfoPhone");
       phoneInput.value = data.phone;
-
       const emailInput = document.getElementById("persInfoEmail");
       emailInput.value = data.email;
-
       const cityInput = document.getElementById("persInfoCity");
       cityInput.value = data.residentialAddress.city;
-
       const streetInput = document.getElementById("persInfoStreet");
       streetInput.value = data.residentialAddress.street;
-
       const homeNumberInput = document.getElementById("persInfoHomeNumber");
       homeNumberInput.value = data.residentialAddress.homeNumber;
-
       const apartmentNumberInput = document.getElementById(
-        "persInfoApartmentNumber");
+        "persInfoApartmentNumber"
+      );
       apartmentNumberInput.value = data.residentialAddress.homeNumber;
     }
   } catch (error) {
@@ -105,7 +94,6 @@ const getInformation = async () => {
   }
 };
 getInformation();
-
 const putInfo = async objectToSend => {
   try {
     const response = await fetch(
@@ -132,7 +120,7 @@ const putInfo = async objectToSend => {
 const form = document.getElementById("updateInfo_form");
 form.addEventListener("submit", event => {
   event.preventDefault();
-  const formData = new FormData(form); 
+  const formData = new FormData(form);
   const name = formData.get("name");
   const surname = formData.get("surname");
   const personalCode = formData.get("personalCode");
@@ -142,7 +130,6 @@ form.addEventListener("submit", event => {
   const street = formData.get("street");
   const homeNumber = formData.get("homeNumber");
   const apartmentNumber = formData.get("apartmentNumber");
-
   const formObject = {
     name,
     surname,

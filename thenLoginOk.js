@@ -8,7 +8,6 @@ const getCookie = name => {
   }
   return "";
 };
-
 function parseJwt() {
   let token = getCookie("token");
   let base64Url = token.split(".")[1];
@@ -25,16 +24,13 @@ function parseJwt() {
   console.log(JSON.parse(jsonPayload));
   return JSON.parse(jsonPayload);
 }
-
 function getRole() {
   let jwt = parseJwt();
   return jwt["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
 }
-
 function reset() {
   window.location.reload();
 }
-
 let getCurrentUserName = async () => {
   try {
     const response = await fetch(
@@ -66,7 +62,6 @@ let createSearchList = properties => {
     });
   }
 };
-
 let getAccountsIdAndUsernames = async () => {
   try {
     const response = await fetch(
@@ -92,12 +87,10 @@ const searchForm = document.getElementById("search_form");
 function getId() {
   return document.getElementById("search_input_Id").value.split(" ")[0];
 }
-
 searchForm.addEventListener("submit", event => {
   event.preventDefault();
   getAccountPersonalInfo(getId());
 });
-
 let getAccountPersonalInfo = async accountId => {
   const errorMessageContainer = document.getElementById(
     "errorMessage_Container"
@@ -137,7 +130,6 @@ let getAccountPersonalInfo = async accountId => {
       } else {
         const headingPersonalInfo = document.createElement("h4");
         headingPersonalInfo.textContent = "Personal Information:";
-
         const name = document.createElement("p");
         name.textContent = `Name: ${data.personalInformation.name}`;
         name.classList.add("info_paragraph");
@@ -147,7 +139,6 @@ let getAccountPersonalInfo = async accountId => {
         const personalCode = document.createElement("p");
         personalCode.textContent = `PersonalCode: ${data.personalInformation.personalCode}`;
         personalCode.classList.add("info_paragraph");
-
         const headingContact = document.createElement("h4");
         headingContact.textContent = "Contact Information:";
         const phone = document.createElement("p");
@@ -156,7 +147,6 @@ let getAccountPersonalInfo = async accountId => {
         const email = document.createElement("p");
         email.textContent = `Email: ${data.personalInformation.email}`;
         email.classList.add("info_paragraph");
-
         const headingAddress = document.createElement("h4");
         headingAddress.textContent = "Address";
         const city = document.createElement("p");
@@ -191,7 +181,6 @@ let getAccountPersonalInfo = async accountId => {
     errorParagraph.textContent = "The user ID you entered does not exist.";
   }
 };
-
 function createDeleteBtn() {
   const adminContainer = document.getElementById("search_output_container");
   const button = document.createElement("button");
@@ -202,9 +191,6 @@ function createDeleteBtn() {
     button.setAttribute("class", "formButton");
     button.setAttribute("type", "submit");
     button.dataset.id = getId();
-    console.log(getId());
-
-    //then click button delete
     button.addEventListener("click", e => {
       e.preventDefault();
       const accountId = button.dataset.id;
@@ -215,11 +201,9 @@ function createDeleteBtn() {
     });
   });
 }
-
 if (getRole() == "Admin") {
   createDeleteBtn();
 }
-
 const deleteAccount = async accountId => {
   const response = await fetch(
     `http://localhost:5200/api/PersonalInformations/${accountId}`,

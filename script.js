@@ -14,7 +14,6 @@ form.addEventListener("submit", async e => {
         Password: userPassword
       })
     });
-
     if (response.ok) {
       const data = await response.text();
       document.cookie = `token=${data}`;
@@ -38,7 +37,6 @@ form.addEventListener("submit", async e => {
     console.error(error);
   }
 });
-
 const getCookie = name => {
   const cookies = document.cookie.split(";");
   for (let i = 0; i < cookies.length; i++) {
@@ -49,7 +47,6 @@ const getCookie = name => {
   }
   return "";
 };
-
 function parseJwt() {
   let token = getCookie("token");
   let base64Url = token.split(".")[1];
@@ -63,7 +60,6 @@ function parseJwt() {
       })
       .join("")
   );
-  console.log(JSON.parse(jsonPayload));
   return JSON.parse(jsonPayload);
 }
 const GetPersonalInformationId = async () => {
