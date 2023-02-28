@@ -105,7 +105,7 @@ header, footer, main {
 .menu-line1, .menu-line3, .menu-line2 {
   width: 2.4rem;
   height: 0.4rem;
-  background: #999999;
+  background: #111111;
   border-radius: 0.3rem;
 }
 
@@ -176,7 +176,7 @@ input:focus, .formButton:focus, .formHref:focus {
 }
 
 .paragraph, .copyright {
-  color: #999999;
+  color: #111111;
   font-size: 2rem;
   line-height: 150%;
   font-weight: 400;
@@ -226,6 +226,7 @@ form, #addNewInfo_form {
   color: #ffffff;
   padding-left: 1.6rem;
   padding-right: 1.6rem;
+  font-size: 1.8rem;
 }
 
 .formButton:hover {
@@ -238,9 +239,13 @@ form, #addNewInfo_form {
   gap: 1.8rem;
 }
 
+.container .paragraph, .container .copyright {
+  color: #cccccc;
+}
+
 .copyright {
   padding-top: 4rem;
-  color: #999999;
+  color: #111111;
   font-size: 1.6rem;
 }
 
@@ -430,11 +435,10 @@ dropdown {
   padding-left: 0rem;
   padding-right: 0rem;
   width: 100%;
-  padding-top: 0.6rem;
-  padding-bottom: 0.6rem;
+  padding-top: 3.2rem;
+  padding-bottom: 3.2rem;
   display: grid;
-  grid-template-row: auto auto;
-  gap: 0.5rem;
+  gap: 0rem;
 }
 
 #search_input_container {
@@ -471,6 +475,7 @@ dropdown {
   background-color: #ff3998;
   border-color: #ffffff;
   margin-right: 0.5rem;
+  width: 4.8rem;
 }
 
 #search_output_container {
@@ -484,13 +489,18 @@ dropdown {
   color: red;
 }
 
-h3 {
+h4 {
   padding-bottom: 2rem;
   padding-top: 2rem;
-  color: #999999;
+  color: #ff3998;
 }
 
 #username_Span {
+  color: #ff3998;
+  text-decoration: underline;
+}
+
+#selected_userName_by_id {
   color: #ff3998;
   text-decoration: underline;
 }

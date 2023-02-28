@@ -46,7 +46,6 @@ let getCurrentUserName = async () => {
         }
       }
     );
-
     if (response.ok) {
       const userName = await response.text();
       const nameParagraf = document.getElementById("current_username");
@@ -57,8 +56,7 @@ let getCurrentUserName = async () => {
   }
 };
 getCurrentUserName();
-
-const createSearchList = properties => {
+let createSearchList = properties => {
   if (properties && properties.length) {
     properties.forEach(account => {
       const namesList = document.getElementById("search");
@@ -91,16 +89,6 @@ let getAccountsIdAndUsernames = async () => {
 getAccountsIdAndUsernames();
 
 const searchForm = document.getElementById("search_form");
-//  searchForm.addEventListener("submit", event => {
-//   event.preventDefault();
-//   const inputAccountId = document
-//     .getElementById("search_input_Id")
-//     .value.split(" ")[0];
-//   console.log(inputAccountId);
-
-//   getAccountPersonalInfo(inputAccountId);
-// });
-
 function getId() {
   return document.getElementById("search_input_Id").value.split(" ")[0];
 }
@@ -143,12 +131,11 @@ let getAccountPersonalInfo = async accountId => {
     );
     if (response.ok) {
       const data = await response.json();
-      console.log(data);
       userNameBySelectedId.textContent = `${data.userName}`;
       if (data.personalInformation == null) {
         errorParagraph.textContent = "hasn't Filled Out Personal information";
       } else {
-        const headingPersonalInfo = document.createElement("h3");
+        const headingPersonalInfo = document.createElement("h4");
         headingPersonalInfo.textContent = "Personal Information:";
         const name = document.createElement("p");
         name.textContent = `Name: ${data.personalInformation.name}`;
@@ -157,14 +144,14 @@ let getAccountPersonalInfo = async accountId => {
         const personalCode = document.createElement("p");
         personalCode.textContent = `PersonalCode: ${data.personalInformation.personalCode}`;
 
-        const headingContact = document.createElement("h3");
+        const headingContact = document.createElement("h4");
         headingContact.textContent = "Contact Information:";
         const phone = document.createElement("p");
         phone.textContent = `Phone: ${data.personalInformation.phone}`;
         const email = document.createElement("p");
         email.textContent = `Email: ${data.personalInformation.email}`;
 
-        const headingAddress = document.createElement("h3");
+        const headingAddress = document.createElement("h4");
         headingAddress.textContent = "Address";
         const city = document.createElement("p");
         city.textContent = `City: ${data.personalInformation.residentialAddress.city}`;

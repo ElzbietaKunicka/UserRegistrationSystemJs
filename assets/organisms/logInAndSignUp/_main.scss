@@ -16,15 +16,15 @@ h1 {
 }
 
 input {
-    border: 0.2rem solid $color-dark4;
-    border-radius: 1%;
-    padding: 0.4rem;
-  }
-  input:focus{
-    background-color: $color-dark4;
-  }
+  border: 0.2rem solid $color-dark4;
+  border-radius: 1%;
+  padding: 0.4rem;
+}
+input:focus {
+  background-color: $color-dark4;
+}
 .paragraph {
-  color: $color-dark4;
+  color: $color-dark1;
   font-size: 2rem;
   line-height: 150%;
   font-weight: 400;
@@ -62,25 +62,27 @@ form {
   font-size: 1rem;
   line-height: 1.8rem;
   padding: 0.5rem;
-  
 }
-.formHref a:hover{
-    font-size: 1.4rem;
+.formHref a:hover {
+  font-size: 1.4rem;
 }
 
 .formButton {
-    @extend input;
-    background-color: $color-pink; 
-    color: $color-light1;
-    padding-left: 1.6rem;
-    padding-right: 1.6rem;
+  @extend input;
+  background-color: $color-pink;
+  color: $color-light1;
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+  font-size: 1.8rem;
 }
 .formButton:hover {
-    font-size: 1.8rem;
+  font-size: 1.8rem;
 }
 .container {
   display: flex;
   flex-direction: column;
   gap: 1.8rem;
 }
-
+.container .paragraph {
+  color: $color-light3;
+}

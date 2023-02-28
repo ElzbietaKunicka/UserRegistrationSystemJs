@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Add information form" />
     <title>AddNewInfoForm</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -37,7 +38,7 @@
           <div class="active dropdown">
             <div class="dropdown-content">
               <a href="./addNewInfo.html">Profile</a>
-              
+
               <a href="./index.html">LogOut </a>
             </div>
             <div class="menu-line1"></div>
@@ -50,86 +51,108 @@
     <main>
       <div>
         <h2><span>Please</span> fill out the information below</h2>
-        <!-- <p class="paragraph">
-          Please fill out the information below
-        </p> -->
       </div>
-      <p class="paragraph">
-        <span>*</span> These fields are required
-      </p>
+      <p class="paragraph"><span>*</span> These fields are required</p>
       <form id="addNewInfo_form" class="add_property_form">
         <fieldset class="fieldset">
           <div class="box required">
             <legend><span>Personal Information:</span></legend>
-            <label  for="persInfoName">Name</label>
-            <input type="text" id="persInfoName" name="name" placeholder="Name" maxlength="35" minlength="3" required />
+            <label for="persInfoName">Name</label>
+            <input
+              type="text"
+              id="persInfoName"
+              name="name"
+              placeholder="Name"
+              maxlength="35"
+              minlength="3"
+              required
+            />
             <label for="persInfoSurname">Surname</label>
             <input
               type="text"
               id="persInfoSurname"
               name="surname"
-              placeholder="Surname" maxlength="35" minlength="3" required
+              placeholder="Surname"
+              maxlength="35"
+              minlength="3"
+              required
             />
             <label for="persInfoPersonalCode">PersonalCode</label>
             <input
               type="text"
               id="persInfoPersonalCode"
               name="personalCode"
-              placeholder="PersonalCode"  minlength="11" maxlength="11" required
+              placeholder="PersonalCode"
+              minlength="11"
+              maxlength="11"
+              required
             />
           </div>
         </fieldset>
         <fieldset>
           <div class="box required">
             <legend><span>Contact Information:</span></legend>
-          <label for="persInfoPhone">Phone</label>
-          <input
-            type="tel"
-            id="persInfoPhone"
-            name="phone"
-            placeholder="+3706 000 00 000" minlength="9" maxlength="12" required
-          />
-          <label for="persInfoEmail">Email</label>
-          <input
-            type="email"
-            id="persInfoEmail"
-            name="email"
-            placeholder="example@gmail.com" maxlength="255" minLength="7" required
-          />
+            <label for="persInfoPhone">Phone</label>
+            <input
+              type="tel"
+              id="persInfoPhone"
+              name="phone"
+              placeholder="+3706 000 00 000"
+              minlength="9"
+              maxlength="12"
+              required
+            />
+            <label for="persInfoEmail">Email</label>
+            <input
+              type="email"
+              id="persInfoEmail"
+              name="email"
+              placeholder="example@gmail.com"
+              maxlength="255"
+              minlength="7"
+              required
+            />
           </div>
         </fieldset>
         <fieldset>
           <div class="box required">
             <legend><span>Address:</span></legend>
-          <label for="persInfoCity">City</label>
-          <select name="city" id="persInfoCity">
-            <!-- Generated list here -->
-          </select>
-          <label for="persInfoStreet">Street</label>
-          <input
-            type="text"
-            id="persInfoStreet"
-            name="street"
-            placeholder="street" maxlength="255" minlength="3" required
-          />
-          <label for="persInfoHomeNumber">HomeNumber</label>
-          <input
-            type="number"
-            id="persInfoHomeNumber"
-            name="homeNumber"
-            placeholder="HomeNumber" required
-          />
-          <label for="persInfoApartmentNumber">ApartmentNumber</label>
-          <input
-            type="number"
-            id="persInfoApartmentNumber"
-            name="apartmentNumber"
-            placeholder="ApartmentNumber" required
-          />
+            <label for="persInfoCity">City</label>
+            <select name="city" id="persInfoCity">
+              <!-- Generated list here -->
+            </select>
+            <label for="persInfoStreet">Street</label>
+            <input
+              type="text"
+              id="persInfoStreet"
+              name="street"
+              placeholder="street"
+              maxlength="255"
+              minlength="3"
+              required
+            />
+            <label for="persInfoHomeNumber">HomeNumber</label>
+            <input
+              type="number"
+              id="persInfoHomeNumber"
+              name="homeNumber"
+              placeholder="HomeNumber"
+              required
+            />
+            <label for="persInfoApartmentNumber">ApartmentNumber</label>
+            <input
+              type="number"
+              id="persInfoApartmentNumber"
+              name="apartmentNumber"
+              placeholder="ApartmentNumber"
+              required
+            />
           </div>
         </fieldset>
         <fieldset class="Addbtnfieldset">
-          <button type="submit" class="formButton" id="submitformButton">Submit</button>
+          <button type="submit" class="formButton" id="submitformButton">
+            Submit
+          </button>
         </fieldset>
       </form>
       <div id="statusMessages">
