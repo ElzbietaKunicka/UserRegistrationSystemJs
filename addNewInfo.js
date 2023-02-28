@@ -96,7 +96,7 @@ const form = document.getElementById("addNewInfo_form");
 
 form.addEventListener("submit", event => {
   event.preventDefault();
-  const formData = new FormData(form); //sukuriam objekta event.target
+  const formData = new FormData(form);
   const name = formData.get("name");
   const surname = formData.get("surname");
   const personalCode = formData.get("personalCode");

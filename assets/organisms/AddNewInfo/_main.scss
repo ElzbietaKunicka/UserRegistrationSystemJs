@@ -11,13 +11,11 @@ h2 {
   text-align: center;
   width: min-content;
 }
-
 .add_property_form label {
   color: $color-dark1;
   align-self: flex-start;
   font-size: 1.2rem;
 }
-
 legend span{
   color: $color-pink;
   font-weight: 800;
@@ -25,7 +23,6 @@ legend span{
 .addNewInfo_body input {
   background-color: $color-light1;
 }
-
 .Addbtnfieldset{
     display: flex;
     flex-direction: row-reverse;
