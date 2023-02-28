@@ -479,7 +479,7 @@ dropdown {
 }
 
 #search_output_container {
-  width: 80%;
+  width: 100%;
   grid-row-start: 2;
   grid-row-end: 3;
   justify-self: center;
@@ -493,6 +493,8 @@ h4 {
   padding-bottom: 2rem;
   padding-top: 2rem;
   color: #ff3998;
+  font-size: 2.2rem;
+  text-align: center;
 }
 
 #username_Span {
@@ -501,8 +503,18 @@ h4 {
 }
 
 #selected_userName_by_id {
-  color: #ff3998;
+  color: #ffffff;
   text-decoration: underline;
+  font-size: 3.2rem;
+  font-weight: 500;
+}
+
+.info_paragraph {
+  font-size: 1.6rem;
+  color: #ffffff;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-weight: 500;
 }
 
 @media screen and (min-width: 568px) {

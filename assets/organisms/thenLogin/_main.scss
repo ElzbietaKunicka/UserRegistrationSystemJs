@@ -62,7 +62,7 @@
   width: 4.8rem;
 }
 #search_output_container {
-  width: 80%;
+  width: 100%;
   grid-row-start: 2;
   grid-row-end: 3;
   justify-self: center;
@@ -74,14 +74,25 @@ h4 {
   padding-bottom: 2rem;
   padding-top: 2rem;
   color: $color-pink;
+  font-size: 2.2rem;
+  text-align: center;
 }
 #username_Span {
   color: $color-pink;
   text-decoration: underline;
 }
 #selected_userName_by_id {
-  color: $color-pink;
+  color: $color-light1;
   text-decoration: underline;
+  font-size: 3.2rem;
+  font-weight: 500;
+}
+.info_paragraph {
+  font-size: 1.6rem;
+  color: $color-light1;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-weight: 500;
 }
 
 @media screen and (min-width: 568px) {

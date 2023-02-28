@@ -137,30 +137,40 @@ let getAccountPersonalInfo = async accountId => {
       } else {
         const headingPersonalInfo = document.createElement("h4");
         headingPersonalInfo.textContent = "Personal Information:";
+
         const name = document.createElement("p");
         name.textContent = `Name: ${data.personalInformation.name}`;
+        name.classList.add("info_paragraph");
         const surname = document.createElement("p");
         surname.textContent = `Surname: ${data.personalInformation.surname}`;
+        surname.classList.add("info_paragraph");
         const personalCode = document.createElement("p");
         personalCode.textContent = `PersonalCode: ${data.personalInformation.personalCode}`;
+        personalCode.classList.add("info_paragraph");
 
         const headingContact = document.createElement("h4");
         headingContact.textContent = "Contact Information:";
         const phone = document.createElement("p");
         phone.textContent = `Phone: ${data.personalInformation.phone}`;
+        phone.classList.add("info_paragraph");
         const email = document.createElement("p");
         email.textContent = `Email: ${data.personalInformation.email}`;
+        email.classList.add("info_paragraph");
 
         const headingAddress = document.createElement("h4");
         headingAddress.textContent = "Address";
         const city = document.createElement("p");
+        city.classList.add("info_paragraph");
         city.textContent = `City: ${data.personalInformation.residentialAddress.city}`;
         const street = document.createElement("p");
+        street.classList.add("info_paragraph");
         street.textContent = `Street: ${data.personalInformation.residentialAddress.street}`;
         const homeNumber = document.createElement("p");
         homeNumber.textContent = `HomeNumber: ${data.personalInformation.residentialAddress.homeNumber}`;
+        homeNumber.classList.add("info_paragraph");
         const apartmentNumber = document.createElement("p");
         apartmentNumber.textContent = `ApartmentNumber: ${data.personalInformation.residentialAddress.apartmentNumber}`;
+        apartmentNumber.classList.add("info_paragraph");
         div.append(
           headingPersonalInfo,
           name,
@@ -225,50 +235,3 @@ const deleteAccount = async accountId => {
     reset();
   }
 };
-
-// if (getRole() == "User") {
-//   searchForm.addEventListener("submit", event => {
-//     event.preventDefault();
-// //     const paratext = document.getElementById("selected_userName_by_id");
-// // const text = paratext.textContent;
-// // console.log(text);
-//     const button = document.createElement("button");
-//     const adminContainer = document.getElementById("search_output_container");
-//     adminContainer.append(button);
-//     button.textContent = "Delete account";
-//     button.setAttribute("class", "formButton");
-//     button.setAttribute("type", "submit");
-
-//     button.dataset.id = document
-//       .getElementById("search_input_Id")
-//       .value.split(" ")[0];
-
-//     button.addEventListener("click", e => {
-//       e.preventDefault();
-//       const accountId =  button.dataset.id;
-//       console.log(accountId);
-//       //const accountId = e.target.dataset.id;
-//       console.log(e.target.dataset.id);
-//       const confirmed = confirm("Are you sure?");
-
-//       if (accountId && confirmed) {
-//         deleteAccount(accountId);
-//       }
-//     });
-//   });
-
-//   const deleteAccount = async accountId => {
-//     const response = await fetch(
-//       `http://localhost:5200/api/PersonalInformations/${accountId}`,
-//       {
-//         method: "DELETE",
-//         headers: {
-//           Authorization: `Bearer ${getCookie("token")}`
-//         }
-//       }
-//     );
-//     if (response.ok) {
-//       reset();
-//     }
-//   };
-// }
