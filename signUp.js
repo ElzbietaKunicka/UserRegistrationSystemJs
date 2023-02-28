@@ -21,7 +21,6 @@ form.addEventListener("submit", async e => {
       })
     });
     const result = await response.text();
-    const exceptionString = "A user with this username already exists.";
     const resultMessageContainer = document.getElementById("Messages");
     const messageParagraph = document.createElement("p");
     if (result === "A user with this username already exists.") {
