@@ -337,7 +337,7 @@ dropdown {
   display: inline-block;
 }
 
-.dropdown-content {
+.dropdown_content {
   display: none;
   position: absolute;
   background-color: #ffffff;
@@ -347,7 +347,7 @@ dropdown {
   z-index: 1;
 }
 
-.dropdown-content a {
+.dropdown_content a {
   color: #111111;
   padding: 0.8rem 0rem;
   text-decoration: none;
@@ -356,16 +356,16 @@ dropdown {
   font-size: 1.2rem;
 }
 
-.dropdown-content a:hover {
+.dropdown_content a:hover {
   background-color: #999999;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown_content {
   display: block;
 }
 
 @media screen and (min-width: 768px) {
-  .dropdown-content a {
+  .dropdown_content a {
     font-size: 1.8rem;
   }
 }

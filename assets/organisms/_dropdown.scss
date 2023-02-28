@@ -10,7 +10,7 @@
 dropdown {
   display: inline-block;
 }
-.dropdown-content {
+.dropdown_content {
   display: none;
   position: absolute;
   background-color: $color-light1;
@@ -18,7 +18,7 @@ dropdown {
   box-shadow: 1rem 0.8rem 2.5rem 0.4rem rgba(197, 146, 167, 0.2);
   z-index: 1;
 }
-.dropdown-content a {
+.dropdown_content a {
   color: $color-dark1;
   padding: 0.8rem 0rem;
   text-decoration: none;
@@ -26,15 +26,15 @@ dropdown {
   text-align: left;
   font-size: 1.2rem;
 }
-.dropdown-content a:hover {
+.dropdown_content a:hover {
   background-color: $color-dark4;
 }
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown_content {
   display: block;
 }
 
 @media screen and (min-width: 768px) {
-  .dropdown-content a {
+  .dropdown_content a {
     font-size: 1.8rem;
   }
 }
