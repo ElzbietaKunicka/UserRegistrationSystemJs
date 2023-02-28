@@ -2,16 +2,13 @@ const form = document.querySelector("#signUp");
 function reset() {
   window.location.reload();
 }
-
 function backToLoginForm() {
   window.location.href = "./index.html";
 }
-
 form.addEventListener("submit", async e => {
   e.preventDefault();
   const userName = document.querySelector("#userName").value;
   const userPassword = document.querySelector("#password").value;
-  
   try {
     const response = await fetch("http://localhost:5200/api/Accounts/SignUp", {
       method: "POST",
@@ -24,11 +21,9 @@ form.addEventListener("submit", async e => {
       })
     });
     const result = await response.text();
-    
     const exceptionString = "A user with this username already exists.";
     const resultMessageContainer = document.getElementById("Messages");
     const messageParagraph = document.createElement("p");
-
     if (result === "A user with this username already exists.") {
       messageParagraph.style.color = "#ff3939";
       messageParagraph.textContent =

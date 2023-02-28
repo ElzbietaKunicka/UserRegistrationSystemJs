@@ -1,14 +1,11 @@
-const form = document.querySelector("#logIn");
-
+const form = document.querySelector("#logIn_form");
 form.addEventListener("submit", async e => {
   e.preventDefault();
   const userName = document.querySelector("#userName").value;
   const userPassword = document.querySelector("#password").value;
-
   try {
     const response = await fetch("http://localhost:5200/api/Accounts/Login", {
       method: "POST",
-    
       headers: {
         "Content-Type": "application/json"
       },
@@ -20,11 +17,6 @@ form.addEventListener("submit", async e => {
 
     if (response.ok) {
       const data = await response.text();
-
-      // document.cookie = `token=${data}`;
-      // window.globalToken = document.cookie;
-      // window.location.href = "./home.html";
-
       document.cookie = `token=${data}`;
       const getCookie = name => {
         const cookies = document.cookie.split(";");
@@ -37,18 +29,8 @@ form.addEventListener("submit", async e => {
         return "";
       };
       let output = getCookie("token");
-      
-
       GetPersonalInformationId();
-      //window.location.href = "./thenLogIn.html";
-      
-      
     } else {
-      // const message = document.getElementById("message");
-      // const messageParagraph = document.createElement("p");
-      // messageParagraph.textContent = "user name with name " + userName + "not exist, try again";
-      // messageParagraph.style.color = "red";
-      // message.append(messageParagraph);
       alert(`Wrong username or password, try again`);
       location.href = "http://127.0.0.1:5501/index.html";
     }
@@ -83,38 +65,26 @@ function parseJwt() {
   );
   console.log(JSON.parse(jsonPayload));
   return JSON.parse(jsonPayload);
-};
-
+}
 const GetPersonalInformationId = async () => {
-try {
-  const response = await fetch(
-    "http://localhost:5200/api/PersonalInformations/PersonalInformationId",
-    {
-      method: "GET",
-      headers: {
+  try {
+    const response = await fetch(
+      "http://localhost:5200/api/PersonalInformations/PersonalInformationId",
+      {
+        method: "GET",
+        headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${getCookie("token")}`
-        },
-      
+        }
+      }
+    );
+    const result = await response.text();
+    if (result == 0) {
+      window.location.href = "./addNewInfo.html";
+    } else {
+      window.location.href = "./thenLogIn.html";
     }
-  );
-  
-  const result = await response.text();
-  console.log(result);
-  if(result == 0){
-    window.location.href = "./addNewInfo.html";
-  }else{
-    window.location.href = "./thenLogIn.html";
+  } catch (error) {
+    console.log(error);
   }
-  
-
-} catch (error) {
-  console.log(error);
-}
 };
-////
-
-
-
-
-
