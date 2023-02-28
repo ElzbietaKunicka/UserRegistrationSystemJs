@@ -1,0 +1,60 @@
+h2 {
+  @extend h1;
+  font-size: 2.4rem;
+  line-height: 2.8rem;
+  text-align: center;
+  color: $color-dark4;
+}
+#addNewInfo_form {
+  @extend form;
+  background-color: $color-light3;
+  text-align: center;
+  width: min-content;
+}
+.add_property_form label {
+  color: $color-dark1;
+  align-self: flex-start;
+  font-size: 1.2rem;
+}
+legend span{
+  color: $color-pink;
+  font-weight: 800;
+}
+.addNewInfo_body input {
+  background-color: $color-light1;
+}
+.Addbtnfieldset{
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 0.5rem;
+    align-items: end;
+}
+#submitformButton {
+  background-color: $color-pink;
+}
+#addNewInfo_form .box{
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.required label:after {
+  content: "*";
+  color: $color-pink;
+}
+
+@media screen and (min-width: 768px) {
+  .addNewInfo_body form {
+    width: 25rem;
+    padding-left: 10rem;
+    padding-right: 10rem;
+  }
+  #addNewInfo_form .box{
+    gap: 0.5rem;
+  }
+  legend span{
+   font-size: 2.2rem;
+   line-height: 2.8rem;
+  }
+}
+
+

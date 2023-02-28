@@ -1,0 +1,14 @@
+.copyright {
+  @extend .paragraph;
+  padding-top: 4rem;
+  color: $color-dark1;
+  font-size: 1.6rem;
+}
+footer {
+  @extend header;
+  padding-top: 6rem;
+  padding-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}

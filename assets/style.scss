@@ -3,23 +3,25 @@
 @import "./base/variables";
 
 //Organisms
-@import "./organisms/header";
-@import "./organisms/main";
-@import "./organisms/footer";
+@import "./organisms/logInAndSignUp/header";
+@import "./organisms/logInAndSignUp/main";
+@import "./organisms/logInAndSignUp/footer";
 
-//Atoms
-@import "./organisms/atoms/button";
+@import "./organisms/AddNewInfo/main";
 
+@import "./organisms/dropdown";
+
+@import "./organisms/UpdateInfo/main";
+
+@import "./organisms/thenLogin/main";
 
 html {
-    font-size: 62.5%;
+  font-size: 62.5%;
 }
 
 body {
-    font-family: $font-main;
-    color: $color-light1;
-    font-size: 1.6rem; 
-    margin-top: 3.2rem;   
-    
-};
-
+  font-family: $font-main;
+  color: $color-light1;
+  font-size: 1.6rem;
+  margin-top: 3.2rem;
+}

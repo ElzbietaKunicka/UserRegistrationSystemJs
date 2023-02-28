@@ -1,0 +1,102 @@
+#personalPage .avatar {
+  border: 0.5rem solid $color-dark4;
+  border-radius: 50%;
+  background-color: $color-dark2;
+}
+#personalPage {
+  padding: 2rem 2rem;
+}
+
+.avatarContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+#current_username {
+  padding: 0rem;
+  font-size: 3.2rem;
+  line-height: 3.2rem;
+}
+
+#search_form {
+  padding-left: 0rem;
+  padding-right: 0rem;
+  width: 100%;
+  padding-top: 3.2rem;
+  padding-bottom: 3.2rem;
+  display: grid;
+  gap: 0rem;
+}
+#search_input_container {
+  width: 100%;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+#search_input_container label {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  justify-self: end;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  align-self: center;
+  color: $color-dark4;
+  width: max-content;
+}
+#search_input_container input {
+  grid-column-start: 4;
+  grid-column-end: 12;
+  background-color: $color-light1;
+  border: none;
+  padding-right: 0.5rem;
+}
+#search_input_container button {
+  grid-column-start: 12;
+  grid-column-end: 13;
+  background-color: $color-pink;
+  border-color: $color-light1;
+  margin-right: 0.5rem;
+  width: 4.8rem;
+}
+#search_output_container {
+  width: 100%;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  justify-self: center;
+}
+#errorMessage {
+  color: red;
+}
+h4 {
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+  color: $color-pink;
+  font-size: 2.2rem;
+  text-align: center;
+}
+#username_Span {
+  color: $color-pink;
+  text-decoration: underline;
+}
+#selected_userName_by_id {
+  color: $color-light1;
+  text-decoration: underline;
+  font-size: 3.2rem;
+  font-weight: 500;
+}
+.info_paragraph {
+  font-size: 1.6rem;
+  color: $color-light1;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+@media screen and (min-width: 568px) {
+  .avatarContainer {
+    width: 30%;
+  }
+}

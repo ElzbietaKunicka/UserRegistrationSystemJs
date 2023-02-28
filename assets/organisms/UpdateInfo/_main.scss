@@ -1,0 +1,34 @@
+.update{
+    background-color: $color-light1;
+}
+.updatebtnfieldset {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.update_property_form {
+  background-color: $color-light1;
+  border-color: $color-dark3;
+}
+#updateInfo_form label {
+  color: $color-pink;
+  align-self: flex-start;
+  font-size: 1.2rem;
+}
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+#updateInfo_form legend span{
+    color: $color-dark1;
+    padding-bottom: 1rem;
+  }
+
+@media screen and (min-width: 768px) {
+  .update_property_form {
+    width: 25rem;
+    padding-left: 10rem;
+    padding-right: 10rem;
+  }
+}
